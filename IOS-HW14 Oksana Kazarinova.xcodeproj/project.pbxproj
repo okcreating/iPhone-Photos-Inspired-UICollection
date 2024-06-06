@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C643586E2C11C30200DC8ACB /* TabBarController.swift */; };
+		C64358712C11C6E200DC8ACB /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358702C11C6E200DC8ACB /* LibraryViewController.swift */; };
+		C64358732C11C70D00DC8ACB /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358722C11C70D00DC8ACB /* ForYouViewController.swift */; };
+		C64358752C11C74500DC8ACB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358742C11C74500DC8ACB /* SearchViewController.swift */; };
+		C64358772C11C9E000DC8ACB /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358762C11C9E000DC8ACB /* AlbumViewController.swift */; };
 		C665411D2C106EA200E04184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C665411C2C106EA200E04184 /* AppDelegate.swift */; };
 		C665411F2C106EA200E04184 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C665411E2C106EA200E04184 /* SceneDelegate.swift */; };
-		C66541212C106EA200E04184 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66541202C106EA200E04184 /* ViewController.swift */; };
 		C66541262C106EA300E04184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C66541252C106EA300E04184 /* Assets.xcassets */; };
 		C66541292C106EA300E04184 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C66541282C106EA300E04184 /* Base */; };
 		C66541332C109F2100E04184 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C66541322C109F2100E04184 /* SnapKit */; };
@@ -18,10 +21,13 @@
 
 /* Begin PBXFileReference section */
 		C643586E2C11C30200DC8ACB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C64358702C11C6E200DC8ACB /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		C64358722C11C70D00DC8ACB /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
+		C64358742C11C74500DC8ACB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C64358762C11C9E000DC8ACB /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		C66541192C106EA200E04184 /* IOS-HW14 Oksana Kazarinova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS-HW14 Oksana Kazarinova.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C665411C2C106EA200E04184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C665411E2C106EA200E04184 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C66541202C106EA200E04184 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C66541252C106EA300E04184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C66541282C106EA300E04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C665412A2C106EA300E04184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,7 +83,7 @@
 		C66541342C109F4A00E04184 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C66541202C106EA200E04184 /* ViewController.swift */,
+				C64358762C11C9E000DC8ACB /* AlbumViewController.swift */,
 				C66541362C10A3EB00E04184 /* TabBar */,
 			);
 			path = Sources;
@@ -97,6 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				C643586E2C11C30200DC8ACB /* TabBarController.swift */,
+				C64358702C11C6E200DC8ACB /* LibraryViewController.swift */,
+				C64358722C11C70D00DC8ACB /* ForYouViewController.swift */,
+				C64358742C11C74500DC8ACB /* SearchViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -177,7 +186,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C66541212C106EA200E04184 /* ViewController.swift in Sources */,
+				C64358752C11C74500DC8ACB /* SearchViewController.swift in Sources */,
+				C64358712C11C6E200DC8ACB /* LibraryViewController.swift in Sources */,
+				C64358732C11C70D00DC8ACB /* ForYouViewController.swift in Sources */,
+				C64358772C11C9E000DC8ACB /* AlbumViewController.swift in Sources */,
 				C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */,
 				C665411D2C106EA200E04184 /* AppDelegate.swift in Sources */,
 				C665411F2C106EA200E04184 /* SceneDelegate.swift in Sources */,
