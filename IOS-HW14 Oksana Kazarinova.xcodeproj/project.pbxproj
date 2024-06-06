@@ -7,20 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C643586E2C11C30200DC8ACB /* TabBarController.swift */; };
 		C665411D2C106EA200E04184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C665411C2C106EA200E04184 /* AppDelegate.swift */; };
 		C665411F2C106EA200E04184 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C665411E2C106EA200E04184 /* SceneDelegate.swift */; };
 		C66541212C106EA200E04184 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66541202C106EA200E04184 /* ViewController.swift */; };
-		C66541242C106EA200E04184 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C66541232C106EA200E04184 /* Base */; };
 		C66541262C106EA300E04184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C66541252C106EA300E04184 /* Assets.xcassets */; };
 		C66541292C106EA300E04184 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C66541282C106EA300E04184 /* Base */; };
+		C66541332C109F2100E04184 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C66541322C109F2100E04184 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C643586E2C11C30200DC8ACB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C66541192C106EA200E04184 /* IOS-HW14 Oksana Kazarinova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS-HW14 Oksana Kazarinova.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C665411C2C106EA200E04184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C665411E2C106EA200E04184 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C66541202C106EA200E04184 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C66541232C106EA200E04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C66541252C106EA300E04184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C66541282C106EA300E04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C665412A2C106EA300E04184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66541332C109F2100E04184 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +58,47 @@
 		C665411B2C106EA200E04184 /* IOS-HW14 Oksana Kazarinova */ = {
 			isa = PBXGroup;
 			children = (
-				C665411C2C106EA200E04184 /* AppDelegate.swift */,
-				C665411E2C106EA200E04184 /* SceneDelegate.swift */,
-				C66541202C106EA200E04184 /* ViewController.swift */,
-				C66541222C106EA200E04184 /* Main.storyboard */,
-				C66541252C106EA300E04184 /* Assets.xcassets */,
-				C66541272C106EA300E04184 /* LaunchScreen.storyboard */,
-				C665412A2C106EA300E04184 /* Info.plist */,
+				C66541302C109AFD00E04184 /* App */,
+				C66541352C109F5D00E04184 /* Resources */,
+				C66541342C109F4A00E04184 /* Sources */,
 			);
 			path = "IOS-HW14 Oksana Kazarinova";
+			sourceTree = "<group>";
+		};
+		C66541302C109AFD00E04184 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C665411C2C106EA200E04184 /* AppDelegate.swift */,
+				C665411E2C106EA200E04184 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C66541342C109F4A00E04184 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C66541202C106EA200E04184 /* ViewController.swift */,
+				C66541362C10A3EB00E04184 /* TabBar */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C66541352C109F5D00E04184 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C66541252C106EA300E04184 /* Assets.xcassets */,
+				C665412A2C106EA300E04184 /* Info.plist */,
+				C66541272C106EA300E04184 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C66541362C10A3EB00E04184 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C643586E2C11C30200DC8ACB /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +117,9 @@
 			dependencies = (
 			);
 			name = "IOS-HW14 Oksana Kazarinova";
+			packageProductDependencies = (
+				C66541322C109F2100E04184 /* SnapKit */,
+			);
 			productName = "IOS-HW14 Oksana Kazarinova";
 			productReference = C66541192C106EA200E04184 /* IOS-HW14 Oksana Kazarinova.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +148,9 @@
 				Base,
 			);
 			mainGroup = C66541102C106EA200E04184;
+			packageReferences = (
+				C66541312C109F2100E04184 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = C665411A2C106EA200E04184 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +167,6 @@
 			files = (
 				C66541262C106EA300E04184 /* Assets.xcassets in Resources */,
 				C66541292C106EA300E04184 /* Base in Resources */,
-				C66541242C106EA200E04184 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C66541212C106EA200E04184 /* ViewController.swift in Sources */,
+				C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */,
 				C665411D2C106EA200E04184 /* AppDelegate.swift in Sources */,
 				C665411F2C106EA200E04184 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +187,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C66541222C106EA200E04184 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C66541232C106EA200E04184 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C66541272C106EA300E04184 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,10 +325,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "IOS-HW14 Oksana Kazarinova/Info.plist";
+				INFOPLIST_FILE = "IOS-HW14 Oksana Kazarinova/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,10 +351,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "IOS-HW14 Oksana Kazarinova/Info.plist";
+				INFOPLIST_FILE = "IOS-HW14 Oksana Kazarinova/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,6 +391,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C66541312C109F2100E04184 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C66541322C109F2100E04184 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C66541312C109F2100E04184 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C66541112C106EA200E04184 /* Project object */;
 }
