@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6340D4B2C125C4700457FAA /* SectionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6340D4A2C125C4700457FAA /* SectionsHeader.swift */; };
+		C63FFD802C13069A003446CD /* SectionHeaderWithSeeAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */; };
 		C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C643586E2C11C30200DC8ACB /* TabBarController.swift */; };
 		C64358712C11C6E200DC8ACB /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358702C11C6E200DC8ACB /* LibraryViewController.swift */; };
 		C64358732C11C70D00DC8ACB /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358722C11C70D00DC8ACB /* ForYouViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C6340D4A2C125C4700457FAA /* SectionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsHeader.swift; sourceTree = "<group>"; };
+		C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderWithSeeAllButton.swift; sourceTree = "<group>"; };
 		C643586E2C11C30200DC8ACB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C64358702C11C6E200DC8ACB /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		C64358722C11C70D00DC8ACB /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6340D492C12598B00457FAA /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				C6340D4A2C125C4700457FAA /* SectionsHeader.swift */,
+				C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 		C66541102C106EA200E04184 = {
 			isa = PBXGroup;
 			children = (
@@ -64,9 +77,10 @@
 		C665411B2C106EA200E04184 /* IOS-HW14 Oksana Kazarinova */ = {
 			isa = PBXGroup;
 			children = (
+				C66541342C109F4A00E04184 /* Sources */,
+				C6340D492C12598B00457FAA /* Items */,
 				C66541302C109AFD00E04184 /* App */,
 				C66541352C109F5D00E04184 /* Resources */,
-				C66541342C109F4A00E04184 /* Sources */,
 			);
 			path = "IOS-HW14 Oksana Kazarinova";
 			sourceTree = "<group>";
@@ -186,7 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6340D4B2C125C4700457FAA /* SectionsHeader.swift in Sources */,
 				C64358752C11C74500DC8ACB /* SearchViewController.swift in Sources */,
+				C63FFD802C13069A003446CD /* SectionHeaderWithSeeAllButton.swift in Sources */,
 				C64358712C11C6E200DC8ACB /* LibraryViewController.swift in Sources */,
 				C64358732C11C70D00DC8ACB /* ForYouViewController.swift in Sources */,
 				C64358772C11C9E000DC8ACB /* AlbumViewController.swift in Sources */,
