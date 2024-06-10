@@ -8,6 +8,7 @@
 import UIKit
 
 class SectionHeaderWithSeeAllButton: UICollectionReusableView {
+    
     static let identifier = "HeaderWithButton"
 
     // MARK: - Outlets
@@ -69,7 +70,17 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
 
     // MARK: - Actions
 
-    @objc func showDetail () {
+    @objc 
+    func showDetail() {
+        let seeAllViewController = SeeAllAlbumsViewController()
+        let seAllNavigationViewController = UINavigationController(rootViewController: seeAllViewController)
+        seAllNavigationViewController.pushViewController(seeAllViewController, animated: true)
+    }
 
+    // MARK: - Reuse
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        title.text = nil
+        seeAllButton.isHidden = true
     }
 }

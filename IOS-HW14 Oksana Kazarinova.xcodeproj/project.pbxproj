@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C62DCA752C15B30F00C5256A /* SeeAllAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DCA742C15B30F00C5256A /* SeeAllAlbumsViewController.swift */; };
 		C6340D4B2C125C4700457FAA /* SectionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6340D4A2C125C4700457FAA /* SectionsHeader.swift */; };
+		C63950EC2C14EBA7004DE870 /* FavouritesAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63950EB2C14EBA7004DE870 /* FavouritesAlbumCell.swift */; };
 		C63FFD802C13069A003446CD /* SectionHeaderWithSeeAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */; };
+		C63FFD822C133F00003446CD /* MyAlbumsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FFD812C133F00003446CD /* MyAlbumsCell.swift */; };
+		C6410C032C13B7BF000992D9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6410C022C13B7BF000992D9 /* Model.swift */; };
 		C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C643586E2C11C30200DC8ACB /* TabBarController.swift */; };
 		C64358712C11C6E200DC8ACB /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358702C11C6E200DC8ACB /* LibraryViewController.swift */; };
 		C64358732C11C70D00DC8ACB /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358722C11C70D00DC8ACB /* ForYouViewController.swift */; };
@@ -22,8 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C62DCA742C15B30F00C5256A /* SeeAllAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllAlbumsViewController.swift; sourceTree = "<group>"; };
 		C6340D4A2C125C4700457FAA /* SectionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsHeader.swift; sourceTree = "<group>"; };
+		C63950EB2C14EBA7004DE870 /* FavouritesAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesAlbumCell.swift; sourceTree = "<group>"; };
 		C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderWithSeeAllButton.swift; sourceTree = "<group>"; };
+		C63FFD812C133F00003446CD /* MyAlbumsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCell.swift; sourceTree = "<group>"; };
+		C6410C022C13B7BF000992D9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C643586E2C11C30200DC8ACB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C64358702C11C6E200DC8ACB /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		C64358722C11C70D00DC8ACB /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +60,8 @@
 		C6340D492C12598B00457FAA /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				C63FFD812C133F00003446CD /* MyAlbumsCell.swift */,
+				C63950EB2C14EBA7004DE870 /* FavouritesAlbumCell.swift */,
 				C6340D4A2C125C4700457FAA /* SectionsHeader.swift */,
 				C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */,
 			);
@@ -98,7 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				C64358762C11C9E000DC8ACB /* AlbumViewController.swift */,
+				C62DCA742C15B30F00C5256A /* SeeAllAlbumsViewController.swift */,
 				C66541362C10A3EB00E04184 /* TabBar */,
+				C6410C022C13B7BF000992D9 /* Model.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -208,7 +220,11 @@
 				C64358772C11C9E000DC8ACB /* AlbumViewController.swift in Sources */,
 				C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */,
 				C665411D2C106EA200E04184 /* AppDelegate.swift in Sources */,
+				C6410C032C13B7BF000992D9 /* Model.swift in Sources */,
+				C63950EC2C14EBA7004DE870 /* FavouritesAlbumCell.swift in Sources */,
+				C62DCA752C15B30F00C5256A /* SeeAllAlbumsViewController.swift in Sources */,
 				C665411F2C106EA200E04184 /* SceneDelegate.swift in Sources */,
+				C63FFD822C133F00003446CD /* MyAlbumsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
