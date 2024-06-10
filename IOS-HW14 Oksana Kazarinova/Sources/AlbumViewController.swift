@@ -16,6 +16,8 @@ class AlbumViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MyAlbumsCell.self, forCellWithReuseIdentifier: MyAlbumsCell.identifier)
         collectionView.register(FavouritesAlbumCell.self, forCellWithReuseIdentifier: FavouritesAlbumCell.identifier)
+        collectionView.register(PeopleCell.self, forCellWithReuseIdentifier: PeopleCell.identifier)
+        collectionView.register(PlacesCell.self, forCellWithReuseIdentifier: PlacesCell.identifier)
         collectionView.register(SectionsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionsHeader.identifier)
         collectionView.register(SectionHeaderWithSeeAllButton.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderWithSeeAllButton.identifier)
 
@@ -53,14 +55,29 @@ class AlbumViewController: UIViewController {
     private func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, _ in
             switch sectionIndex {
+
             case 0:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.43), heightDimension: .fractionalHeight(0.46))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.46))
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
+                layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
+                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
+                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10)
+                sectionLayout.orthogonalScrollingBehavior = .groupPagingCentered
                 return sectionLayout
+
             case 1:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.43) , heightDimension: .fractionalHeight(1))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: layoutItem, count: 2)
+                layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
+                let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
+                sectionLayout.orthogonalScrollingBehavior = .groupPagingCentered
+                return sectionLayout
+
             case 2, 3:
 
             default:
