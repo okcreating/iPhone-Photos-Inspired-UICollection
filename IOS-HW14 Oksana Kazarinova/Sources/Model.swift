@@ -10,13 +10,14 @@ import Foundation
 struct CompositionalModel: Hashable {
     var nameOfAlbum: Albums
     var mainTitle: String
-    var image: String
+    var image: String?
     var numberOfItems: Int?
     var lockIcon: String?
 }
 
 extension CompositionalModel {
     static let modelsArray = [
+
         [CompositionalModel(nameOfAlbum: .recents, mainTitle: "Recents", image: ContentModel.recents.last ?? "blank", numberOfItems: ContentModel.recents.count),
          CompositionalModel(nameOfAlbum: .favourites, mainTitle: "Favourites", image: ContentModel.favourites.last ?? "blank", numberOfItems: ContentModel.favourites.count),
          CompositionalModel(nameOfAlbum: .uk, mainTitle: "UK", image: ContentModel.uk.last ?? "blank", numberOfItems: ContentModel.uk.count),
@@ -25,9 +26,12 @@ extension CompositionalModel {
          CompositionalModel(nameOfAlbum: .cars, mainTitle: "Cars", image: ContentModel.cars.last ?? "blank", numberOfItems: ContentModel.cars.count),
          CompositionalModel(nameOfAlbum: .books, mainTitle: "Books", image: ContentModel.books.last ?? "blank", numberOfItems: ContentModel.books.count),
          CompositionalModel(nameOfAlbum: .skiing, mainTitle: "Skiing", image: ContentModel.skiing.last ?? "blank", numberOfItems: ContentModel.skiing.count)],
-        [],
-        [],
-        []
+
+        [CompositionalModel(nameOfAlbum: .people, mainTitle: "People", numberOfItems: ContentModel.people.count),
+         CompositionalModel(nameOfAlbum: .recents, mainTitle: "Places", numberOfItems: ContentModel.recents.count - ContentModel.imports.count)],
+        
+                            [],
+                            []
     ]
 }
 
