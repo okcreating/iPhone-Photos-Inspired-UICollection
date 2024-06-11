@@ -97,7 +97,7 @@ class FavouritesAlbumCell: UICollectionViewCell {
    // MARK: Configuration
 
     func configuration(model: CompositionalModel) {
-        self.image.image = UIImage(named: model.image)
+        self.image.image = UIImage(named: model.image ?? "blank")
         self.albumName.text = model.mainTitle
         self.amountOfPhotoLabel.text = String("\(model.numberOfItems)")
     }
