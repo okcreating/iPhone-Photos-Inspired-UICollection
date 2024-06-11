@@ -18,6 +18,8 @@ class AlbumViewController: UIViewController {
         collectionView.register(FavouritesAlbumCell.self, forCellWithReuseIdentifier: FavouritesAlbumCell.identifier)
         collectionView.register(PeopleCell.self, forCellWithReuseIdentifier: PeopleCell.identifier)
         collectionView.register(PlacesCell.self, forCellWithReuseIdentifier: PlacesCell.identifier)
+        collectionView.register(MediaTypesAndUtilitiesCell.self, forCellWithReuseIdentifier: MediaTypesAndUtilitiesCell.identifier)
+        collectionView.register(UtilitiesWithLockCell.self, forCellWithReuseIdentifier: UtilitiesWithLockCell.identifier)
         collectionView.register(SectionsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionsHeader.identifier)
         collectionView.register(SectionHeaderWithSeeAllButton.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderWithSeeAllButton.identifier)
 
@@ -78,9 +80,16 @@ class AlbumViewController: UIViewController {
                 sectionLayout.orthogonalScrollingBehavior = .groupPagingCentered
                 return sectionLayout
 
-            case 2, 3:
-
             default:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
+                let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
+                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
+                let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
+                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10)
+                return sectionLayout
             }
         }
     }
@@ -89,15 +98,50 @@ class AlbumViewController: UIViewController {
 extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        4
+        CompositionalModel.modelsArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //switch section
+        CompositionalModel.modelsArray[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        switch indexPath.section {
+        case 0:
+            if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .favourites {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: FavouritesAlbumCell.identifier, for: indexPath)
+                return item
+            } else {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath)
+                return item
+            }
+        case 1:
+            if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .people {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: PeopleCell.identifier, for: indexPath)
+                return item
+            }
+            else if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .places {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: PlacesCell.identifier, for: indexPath)
+                return item
+            } else {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath)
+                return item
+            }
+        case 2:
+            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath)
+            return item
+        case 3:
+            if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .hidden || CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .recentlyDeleted {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: UtilitiesWithLockCell.identifier, for: indexPath)
+                return item
+            } else {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath)
+                return item
+            }
+        default:
+            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath)
+            return item
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
