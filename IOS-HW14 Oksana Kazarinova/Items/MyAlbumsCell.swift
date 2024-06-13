@@ -60,7 +60,6 @@ class MyAlbumsCell: UICollectionViewCell {
         contentView.addSubview(nameAndAmountStack)
         nameAndAmountStack.addSubview(albumName)
         nameAndAmountStack.addSubview(amountOfPhotoLabel)
-
     }
 
     private func setupLayout() {
@@ -81,7 +80,6 @@ class MyAlbumsCell: UICollectionViewCell {
             make.leading.equalTo(nameAndAmountStack).offset(10)
             make.top.equalTo(albumName.snp.bottom).offset(-5)
         }
-
     }
 
     // MARK: Configuration
