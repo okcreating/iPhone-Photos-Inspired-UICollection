@@ -21,6 +21,9 @@
 		C64358732C11C70D00DC8ACB /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358722C11C70D00DC8ACB /* ForYouViewController.swift */; };
 		C64358752C11C74500DC8ACB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358742C11C74500DC8ACB /* SearchViewController.swift */; };
 		C64358772C11C9E000DC8ACB /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358762C11C9E000DC8ACB /* AlbumViewController.swift */; };
+		C64466072C190D1400995BB5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64466062C190D1400995BB5 /* DetailViewController.swift */; };
+		C6483D542C1A2CF000400FF8 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6483D532C1A2CF000400FF8 /* DetailCell.swift */; };
+		C6483D562C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6483D552C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift */; };
 		C665411D2C106EA200E04184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C665411C2C106EA200E04184 /* AppDelegate.swift */; };
 		C665411F2C106EA200E04184 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C665411E2C106EA200E04184 /* SceneDelegate.swift */; };
 		C66541262C106EA300E04184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C66541252C106EA300E04184 /* Assets.xcassets */; };
@@ -44,6 +47,9 @@
 		C64358722C11C70D00DC8ACB /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
 		C64358742C11C74500DC8ACB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C64358762C11C9E000DC8ACB /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		C64466062C190D1400995BB5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C6483D532C1A2CF000400FF8 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		C6483D552C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoViewController.swift; sourceTree = "<group>"; };
 		C66541192C106EA200E04184 /* IOS-HW14 Oksana Kazarinova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS-HW14 Oksana Kazarinova.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C665411C2C106EA200E04184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C665411E2C106EA200E04184 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 				C63DCE242C17872F0040F3C8 /* PlacesCell.swift */,
 				C63DCE262C17B9450040F3C8 /* MediaTypesAndUtilitiesCell.swift */,
 				C63DCE282C17BC1C0040F3C8 /* UtilitiesWithLockCell.swift */,
+				C6483D532C1A2CF000400FF8 /* DetailCell.swift */,
 				C6340D4A2C125C4700457FAA /* SectionsHeader.swift */,
 				C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */,
 			);
@@ -119,8 +126,9 @@
 		C66541342C109F4A00E04184 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C64358762C11C9E000DC8ACB /* AlbumViewController.swift */,
 				C62DCA742C15B30F00C5256A /* SeeAllAlbumsViewController.swift */,
+				C64466062C190D1400995BB5 /* DetailViewController.swift */,
+				C6483D552C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift */,
 				C66541362C10A3EB00E04184 /* TabBar */,
 				C6410C022C13B7BF000992D9 /* Model.swift */,
 			);
@@ -143,6 +151,7 @@
 				C643586E2C11C30200DC8ACB /* TabBarController.swift */,
 				C64358702C11C6E200DC8ACB /* LibraryViewController.swift */,
 				C64358722C11C70D00DC8ACB /* ForYouViewController.swift */,
+				C64358762C11C9E000DC8ACB /* AlbumViewController.swift */,
 				C64358742C11C74500DC8ACB /* SearchViewController.swift */,
 			);
 			path = TabBar;
@@ -233,13 +242,16 @@
 				C64358772C11C9E000DC8ACB /* AlbumViewController.swift in Sources */,
 				C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */,
 				C665411D2C106EA200E04184 /* AppDelegate.swift in Sources */,
+				C64466072C190D1400995BB5 /* DetailViewController.swift in Sources */,
 				C6410C032C13B7BF000992D9 /* Model.swift in Sources */,
 				C63950EC2C14EBA7004DE870 /* FavouritesAlbumCell.swift in Sources */,
 				C62DCA752C15B30F00C5256A /* SeeAllAlbumsViewController.swift in Sources */,
 				C63DCE292C17BC1C0040F3C8 /* UtilitiesWithLockCell.swift in Sources */,
+				C6483D562C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift in Sources */,
 				C63DCE252C17872F0040F3C8 /* PlacesCell.swift in Sources */,
 				C665411F2C106EA200E04184 /* SceneDelegate.swift in Sources */,
 				C63DCE272C17B9450040F3C8 /* MediaTypesAndUtilitiesCell.swift in Sources */,
+				C6483D542C1A2CF000400FF8 /* DetailCell.swift in Sources */,
 				C63FFD822C133F00003446CD /* MyAlbumsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

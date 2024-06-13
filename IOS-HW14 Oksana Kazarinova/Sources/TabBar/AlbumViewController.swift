@@ -22,7 +22,6 @@ class AlbumViewController: UIViewController {
         collectionView.register(UtilitiesWithLockCell.self, forCellWithReuseIdentifier: UtilitiesWithLockCell.identifier)
         collectionView.register(SectionsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionsHeader.identifier)
         collectionView.register(SectionHeaderWithSeeAllButton.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderWithSeeAllButton.identifier)
-
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -32,8 +31,8 @@ class AlbumViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Albums"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = .white
+        setupNavigationBar()
         setupHierarchy()
         setupLayout()
     }
@@ -46,10 +45,17 @@ class AlbumViewController: UIViewController {
 
     private func setupLayout() {
         albumsCollectionView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(view)
-            make.top.equalTo(navigationController?.navigationBar ?? view).offset(15)
-            make.bottom.equalTo(tabBarController?.tabBar ?? view)
+            make.leading.top.bottom.trailing.equalTo(view)
+            //make.top.equalTo(navigationController?.navigationBar ?? view).offset(15)
+            //make.bottom.equalTo(tabBarController?.tabBar ?? view)
         }
+    }
+
+    private func setupNavigationBar() {
+        title = "Albums"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let plusBarItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = plusBarItem
     }
 
     // MARK: - CollectionViewLayout
@@ -59,9 +65,9 @@ class AlbumViewController: UIViewController {
             switch sectionIndex {
 
             case 0:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.43), heightDimension: .fractionalHeight(0.46))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.43), heightDimension: .fractionalHeight(0.3))
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
                 layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
                 layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
@@ -170,7 +176,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        let viewController = DetailViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
-
 }

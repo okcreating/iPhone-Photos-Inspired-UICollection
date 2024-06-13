@@ -80,6 +80,7 @@ extension SeeAllAlbumsViewController: UICollectionViewDelegate, UICollectionView
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        let viewController = DetailViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
