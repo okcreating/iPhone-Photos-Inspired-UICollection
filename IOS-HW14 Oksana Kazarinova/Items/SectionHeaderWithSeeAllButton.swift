@@ -15,7 +15,7 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
 
     lazy var title: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
 
@@ -24,16 +24,10 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
         button.backgroundColor = .clear
         button.setTitle("See All", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
        // button.frame = CGRect(x: 303, y: 14, width: 62, height: 12)
         button.addTarget(self, action: #selector(showDetail), for: .touchUpInside)
         return button
-    }()
-
-    lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        return stack
     }()
 
     // MARK: - Initializers
@@ -52,19 +46,17 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
     // MARK: Setups
 
     private func setupHierarchy() {
-        addSubview(stackView)
-        stackView.addSubview(title)
-        stackView.addSubview(seeAllButton)
+        addSubview(title)
+        addSubview(seeAllButton)
     }
 
     private func setupLayout() {
         title.snp.makeConstraints { make in
-            make.leading.equalTo(stackView).offset(5)
-            make.top.bottom.equalTo(stackView)
+            make.bottom.left.equalTo(self)
         }
+        
         seeAllButton.snp.makeConstraints { make in
-            make.right.equalTo(stackView.snp_rightMargin).offset(-5)
-            make.top.bottom.equalTo(stackView)
+            make.bottom.right.equalTo(self)
         }
     }
 

@@ -64,12 +64,12 @@ class MyAlbumsCell: UICollectionViewCell {
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.top.leading.trailing.equalTo(contentView)
         }
 
         nameAndAmountStack.snp.makeConstraints { make in
             make.top.equalTo(image.snp.bottom).offset(-10)
-            make.leading.bottom.equalToSuperview()
+            make.leading.bottom.equalTo(contentView)
         }
 
         albumName.snp.makeConstraints { make in

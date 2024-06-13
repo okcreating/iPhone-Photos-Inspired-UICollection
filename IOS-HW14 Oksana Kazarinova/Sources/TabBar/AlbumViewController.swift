@@ -20,8 +20,10 @@ class AlbumViewController: UIViewController {
         collectionView.register(PlacesCell.self, forCellWithReuseIdentifier: PlacesCell.identifier)
         collectionView.register(MediaTypesAndUtilitiesCell.self, forCellWithReuseIdentifier: MediaTypesAndUtilitiesCell.identifier)
         collectionView.register(UtilitiesWithLockCell.self, forCellWithReuseIdentifier: UtilitiesWithLockCell.identifier)
+
         collectionView.register(SectionsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionsHeader.identifier)
         collectionView.register(SectionHeaderWithSeeAllButton.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderWithSeeAllButton.identifier)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -45,9 +47,8 @@ class AlbumViewController: UIViewController {
 
     private func setupLayout() {
         albumsCollectionView.snp.makeConstraints { make in
-            make.leading.top.bottom.trailing.equalTo(view)
-            //make.top.equalTo(navigationController?.navigationBar ?? view).offset(15)
-            //make.bottom.equalTo(tabBarController?.tabBar ?? view)
+            make.left.bottom.right.equalTo(view)
+            make.top.equalTo(view.safeAreaLayoutGuide)
         }
     }
 
@@ -65,36 +66,60 @@ class AlbumViewController: UIViewController {
             switch sectionIndex {
 
             case 0:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.46))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.43), heightDimension: .fractionalHeight(0.3))
+
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.46), heightDimension: .fractionalHeight(0.60))
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
-                layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
+               // layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
                 layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
+
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
                 sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10)
-                sectionLayout.orthogonalScrollingBehavior = .groupPagingCentered
+                sectionLayout.orthogonalScrollingBehavior = .groupPaging
+
+                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(40))
+                let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
+
                 return sectionLayout
 
             case 1:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.43) , heightDimension: .fractionalHeight(1))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1) , heightDimension: .fractionalHeight(0.46))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: layoutItem, count: 2)
-                layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
+
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.46), heightDimension: .fractionalHeight(0.6))
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
+               // layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
+                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
+                
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
-                sectionLayout.orthogonalScrollingBehavior = .groupPagingCentered
+                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10)
+                sectionLayout.orthogonalScrollingBehavior = .groupPaging
+
+                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(40))
+                let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
+
                 return sectionLayout
 
             default:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
+
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
                 layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
+
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
                 sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10)
+                sectionLayout.orthogonalScrollingBehavior = .continuous
+
+                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(40))
+                let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
+
                 return sectionLayout
             }
         }
