@@ -11,6 +11,10 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
     
     static let identifier = "HeaderWithButton"
 
+   
+
+   // private var models = [[CompositionalModel]]()
+
     // MARK: - Outlets
 
     lazy var title: UILabel = {
@@ -34,9 +38,10 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
 
     override init(frame: CGRect) {
         super .init(frame: frame)
-        clipsToBounds = true
+        //clipsToBounds = true
         setupHierarchy()
         setupLayout()
+
     }
 
     required init?(coder: NSCoder) {
@@ -64,15 +69,15 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
 
     @objc 
     func showDetail() {
-        let seeAllViewController = SeeAllAlbumsViewController()
-        let seAllNavigationViewController = UINavigationController(rootViewController: seeAllViewController)
-        seAllNavigationViewController.pushViewController(seeAllViewController, animated: true)
+        let controller = SeeAllAlbumsViewController()
+        controller.delegate?.pushSeeAllAlbums()
+        
     }
+
 
     // MARK: - Reuse
     override func prepareForReuse() {
         super.prepareForReuse()
         title.text = nil
-        seeAllButton.isHidden = true
     }
 }

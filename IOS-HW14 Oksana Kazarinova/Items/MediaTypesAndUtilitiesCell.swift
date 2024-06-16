@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MediaTypesAndUtilitiesCell: UICollectionViewCell {
+class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
     static let identifier = "MediaTypesAndUtilitiesCell"
 
    // MARK: Outlets
@@ -39,6 +39,7 @@ class MediaTypesAndUtilitiesCell: UICollectionViewCell {
        super.init(frame: frame)
        setupHierarchy()
        setupLayout()
+       
    }
 
    required init?(coder: NSCoder) {
@@ -55,18 +56,18 @@ class MediaTypesAndUtilitiesCell: UICollectionViewCell {
 
    private func setupLayout() {
        icon.snp.makeConstraints { make in
-           make.leading.equalToSuperview().offset(10)
-           make.bottomMargin.topMargin.equalToSuperview().offset(5)
+           make.leading.equalTo(contentView).offset(10)
+           make.top.bottom.equalTo(contentView)
        }
 
       albumName.snp.makeConstraints { make in
-          make.leading.equalTo(icon).offset(10)
-          make.bottomMargin.topMargin.equalToSuperview().offset(5)
+          make.leading.equalTo(icon.snp.trailing).offset(10)
+          make.top.bottom.equalTo(contentView)
        }
 
        amountOfPhotoLabel.snp.makeConstraints { make in
-           make.trailing.equalTo(contentView).offset(10)
-           make.bottomMargin.topMargin.equalToSuperview().offset(5)
+           make.trailing.equalTo(contentView).offset(-10)
+           make.top.bottom.equalTo(contentView)
        }
    }
 
@@ -75,7 +76,7 @@ class MediaTypesAndUtilitiesCell: UICollectionViewCell {
    func configuration(model: CompositionalModel) {
        self.icon.image = UIImage(named: model.image ?? "blank")
        self.albumName.text = model.mainTitle
-       self.amountOfPhotoLabel.text = String("\(model.numberOfItems)")
+       self.amountOfPhotoLabel.text = String("\(model.numberOfItems ?? 0)")
    }
 
    // MARK: Reuse

@@ -8,6 +8,7 @@
 import UIKit
 
 class PlacesCell: UICollectionViewCell {
+
     static let identifier = "PlacesCell"
 
    // MARK: Outlets
@@ -24,14 +25,10 @@ class PlacesCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
-        imageView.contentMode = .center
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor.white.cgColor
         return imageView
-    }()
-
-    lazy var photosStack: UIStackView =  {
-        let stack = UIStackView()
-        stack.alignment = .fill
-        return stack
     }()
 
    lazy var albumName: UILabel = {
@@ -50,7 +47,7 @@ class PlacesCell: UICollectionViewCell {
    lazy var nameAndAmountStack: UIStackView = {
        let stack = UIStackView()
        stack.axis = .vertical
-       stack.alignment = .leading
+      // stack.alignment = .bottom
        return stack
    }()
 
@@ -69,52 +66,50 @@ class PlacesCell: UICollectionViewCell {
    // MARK: Setups
 
    private func setupHierarchy() {
-       contentView.addSubview(photosStack)
+       contentView.addSubview(image1)
+
+      image1.addSubview(image2)
        contentView.addSubview(nameAndAmountStack)
-       photosStack.addSubview(image1)
-       photosStack.addSubview(image2)
        nameAndAmountStack.addSubview(albumName)
        nameAndAmountStack.addSubview(amountOfPhotoLabel)
    }
 
    private func setupLayout() {
-       photosStack.snp.makeConstraints { make in
-           make.top.leading.trailing.equalToSuperview()
-       }
-
-       nameAndAmountStack.snp.makeConstraints { make in
-           make.top.equalTo(photosStack.snp.bottom).offset(-10)
-           make.leading.bottom.equalToSuperview()
-       }
-
-       albumName.snp.makeConstraints { make in
-           make.leading.top.equalTo(nameAndAmountStack).offset(10)
-       }
-
-       amountOfPhotoLabel.snp.makeConstraints { make in
-           make.leading.equalTo(nameAndAmountStack).offset(10)
-           make.top.equalTo(albumName.snp.bottom).offset(-5)
-       }
-
-       image1.snp.makeConstraints { make in
-           make.edges.equalTo(photosStack)
-           make.width.height.equalTo(photosStack)
+      image1.snp.makeConstraints { make in
+           make.top.leading.trailing.equalTo(self)
+          //make.width.equalTo(contentView.snp.height)
        }
 
        image2.snp.makeConstraints { make in
-           make.centerX.centerY.equalTo(photosStack)
-           make.width.lessThanOrEqualTo(photosStack.frame.width / 2.05)
-           make.height.lessThanOrEqualTo(photosStack.frame.height / 2.05)
+          // make.edges.equalTo(image1).offset(60)
+           make.width.equalTo(contentView.frame.width / 2.2)
+           make.height.equalTo(self.frame.width)
+           make.centerX.centerY.equalTo(image1.snp.center)
+       }
+
+       nameAndAmountStack.snp.makeConstraints { make in
+           make.top.equalTo(image1.snp.bottom)
+           make.leading.bottom.equalTo(contentView)
+       }
+
+       albumName.snp.makeConstraints { make in
+           make.leading.equalTo(nameAndAmountStack)
+           make.top.equalTo(nameAndAmountStack).offset(5)
+       }
+
+       amountOfPhotoLabel.snp.makeConstraints { make in
+           make.leading.equalTo(nameAndAmountStack)
+           make.top.equalTo(albumName.snp.bottom)
        }
    }
 
    // MARK: Configuration
 
    func configuration(model: CompositionalModel) {
-       self.image1.image = UIImage(systemName: "map")
+       self.image1.image = UIImage(named: "map")
        self.image2.image = UIImage(named: ContentModel.recents.randomElement() ?? "blank")
        self.albumName.text = model.mainTitle
-       self.amountOfPhotoLabel.text = String("\(model.numberOfItems)")
+       self.amountOfPhotoLabel.text = String("\(model.numberOfItems ?? 0)")
    }
 
    // MARK: Reuse

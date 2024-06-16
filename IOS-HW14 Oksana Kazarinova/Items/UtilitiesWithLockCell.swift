@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UtilitiesWithLockCell: UICollectionViewCell {
+class UtilitiesWithLockCell: UICollectionViewListCell {
     static let identifier = "MediaTypesAndUtilitiesCell"
 
    // MARK: Outlets

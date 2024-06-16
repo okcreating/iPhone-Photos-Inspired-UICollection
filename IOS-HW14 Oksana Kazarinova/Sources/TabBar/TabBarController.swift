@@ -38,6 +38,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         albumsTab.tabBarItem = albumsIcon
         let albumsNavigationController = UINavigationController(rootViewController: albumsTab)
 
+
         let searchTab = SearchViewController()
         let searchIcon = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass"))
         searchTab.tabBarItem = searchIcon

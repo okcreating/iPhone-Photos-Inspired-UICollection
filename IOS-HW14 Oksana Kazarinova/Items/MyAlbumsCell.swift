@@ -17,6 +17,7 @@ class MyAlbumsCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
+        
         return imageView
     }()
 
@@ -65,6 +66,7 @@ class MyAlbumsCell: UICollectionViewCell {
     private func setupLayout() {
         image.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(contentView)
+           // make.height.equalTo(self.snp.height)
         }
 
         nameAndAmountStack.snp.makeConstraints { make in
@@ -87,7 +89,7 @@ class MyAlbumsCell: UICollectionViewCell {
     func configuration(model: CompositionalModel) {
         self.image.image = UIImage(named: model.image ?? "blank")
         self.albumName.text = model.mainTitle
-        self.amountOfPhotoLabel.text = String("\(model.numberOfItems)")
+        self.amountOfPhotoLabel.text = String("\(model.numberOfItems ?? 0)")
     }
 
     // MARK: Reuse

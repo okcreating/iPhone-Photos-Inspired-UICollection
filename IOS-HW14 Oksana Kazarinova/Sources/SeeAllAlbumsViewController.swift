@@ -8,6 +8,7 @@
 import UIKit
 
 class SeeAllAlbumsViewController: UIViewController {
+    weak var delegate: AlbumControllerOutput?
 
     // MARK: Outlets
 
@@ -26,6 +27,7 @@ class SeeAllAlbumsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Albums"
+       
         setupNavigationBar()
         setupHierarchy()
         setupLayout()
@@ -34,7 +36,6 @@ class SeeAllAlbumsViewController: UIViewController {
     // MARK: - Setups
 
     private func setupNavigationBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: .none, action: .none)
     }
 

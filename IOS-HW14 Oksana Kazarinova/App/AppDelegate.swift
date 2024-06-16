@@ -10,3 +10,4 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate { }
 
+//Thread 1: "the cell returned from -collectionView:cellForItemAtIndexPath: does not have a reuseIdentifier - cells must be retrieved by calling -dequeueReusableCellWithReuseIdentifier:forIndexPath:"
