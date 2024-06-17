@@ -16,6 +16,7 @@ class DetailCell: UICollectionViewCell {
        let imageView = UIImageView()
        imageView.clipsToBounds = true
        imageView.contentMode = .scaleToFill
+    
        return imageView
    }()
 
@@ -40,8 +41,14 @@ class DetailCell: UICollectionViewCell {
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
-            make.edges.equalTo(contentView)
+            make.edges.equalTo(self)
         }
+    }
+
+    // MARK: Configuration
+
+    func configuration(model: CompositionalModel) {
+        self.image.image = UIImage(named: model.image ?? "blank")
     }
 
     // MARK: Reuse

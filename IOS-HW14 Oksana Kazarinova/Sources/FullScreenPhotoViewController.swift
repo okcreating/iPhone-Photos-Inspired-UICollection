@@ -9,13 +9,17 @@ import UIKit
 
 class FullScreenPhotoViewController: UIViewController {
 
+    // MARK: - Outlets
+
     lazy var image: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
        // imageView.image =
         return imageView
     }()
+
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +27,21 @@ class FullScreenPhotoViewController: UIViewController {
         setupHierarchy()
     }
 
+    // MARK: - Setups
+
     func setupHierarchy() {
         view.addSubview(image)
     }
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(view)
         }
     }
+
+//    // MARK: Configuration
+//    
+//    func configuration(model: CompositionalModel) {
+//        self.image.image = UIImage(named: model.content. ?? "blank")
+//    }
 }

@@ -146,22 +146,22 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .favourites {
+            if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .favourites {
                 let item = collectionView.dequeueReusableCell(withReuseIdentifier: FavouritesAlbumCell.identifier, for: indexPath) as! FavouritesAlbumCell
                 item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
-                    return item
+                return item
             } else {
                 let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath) as! MyAlbumsCell
                 item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             }
         case 1:
-            if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .people {
+            if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .people {
                 let item = collectionView.dequeueReusableCell(withReuseIdentifier: PeopleCell.identifier, for: indexPath) as! PeopleCell
                 item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             }
-            else if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .places {
+            else if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .places {
                 let item = collectionView.dequeueReusableCell(withReuseIdentifier: PlacesCell.identifier, for: indexPath) as! PlacesCell
                 item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
@@ -170,30 +170,25 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             }
+        case 3:
+            if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .hidden || CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .recentlyDeleted {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: UtilitiesWithLockCell.identifier, for: indexPath) as! UtilitiesWithLockCell
+                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
+                item.accessories = [.disclosureIndicator()]
+                return item
+            } else {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath) as! MediaTypesAndUtilitiesCell
+                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
+                item.accessories = [.disclosureIndicator()]
+                return item
+            }
         default:
             let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath) as? MediaTypesAndUtilitiesCell
-                item?.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
-                item?.accessories = [.disclosureIndicator()]
+            item?.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
+            item?.accessories = [.disclosureIndicator()]
             return item ?? UICollectionViewCell()
-//        case 3:
-//            if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .hidden || CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .recentlyDeleted {
-//                let item = collectionView.dequeueReusableCell(withReuseIdentifier: UtilitiesWithLockCell.identifier, for: indexPath) as! UtilitiesWithLockCell
-//                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
-//                item.accessories = [.disclosureIndicator()]
-//                return item
-//            } else {
-//                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath) as! MediaTypesAndUtilitiesCell
-//                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
-//                item.accessories = [.disclosureIndicator()]
-//                return item
-//            }
-//        default:
-//            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath) as! MediaTypesAndUtilitiesCell
-//            item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
-//            item.accessories = [.disclosureIndicator()]
-//            return item
         }
-    }
+        }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch indexPath.section {

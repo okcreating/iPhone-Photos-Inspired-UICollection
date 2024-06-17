@@ -16,6 +16,7 @@ class FavouritesAlbumCell: UICollectionViewCell {
     lazy var image: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 5
         imageView.contentMode = .scaleToFill
         return imageView
    }()

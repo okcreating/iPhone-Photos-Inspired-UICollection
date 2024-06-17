@@ -39,10 +39,9 @@ class DetailViewController: UIViewController {
     }
 
     private func setupLayout() {
-       gridCollectionView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(view)
-            make.top.equalTo(navigationController?.navigationBar ?? view).offset(15)
-            make.bottom.equalTo(tabBarController?.tabBar ?? view)
+        gridCollectionView.snp.makeConstraints { make in
+            make.left.bottom.right.equalTo(view)
+            make.top.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }
@@ -58,8 +57,9 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = gridCollectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath)
-        return item
+        let item = gridCollectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell
+        item?.image.image = UIImage(named: CompositionalModel.modelsArray[indexPath.section][indexPath.section].content[indexPath.item])
+        return item ?? UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

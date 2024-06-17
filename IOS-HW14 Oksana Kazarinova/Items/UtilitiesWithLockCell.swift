@@ -8,7 +8,7 @@
 import UIKit
 
 class UtilitiesWithLockCell: UICollectionViewListCell {
-    static let identifier = "MediaTypesAndUtilitiesCell"
+    static let identifier = "UtilitiesWithLockCell"
 
    // MARK: Outlets
 
@@ -54,19 +54,18 @@ class UtilitiesWithLockCell: UICollectionViewListCell {
 
    private func setupLayout() {
        icon.snp.makeConstraints { make in
-           make.leading.equalToSuperview().offset(10)
-           make.bottomMargin.topMargin.equalToSuperview().offset(5)
+           make.leading.equalTo(self)
+           make.top.bottom.equalTo(self)
        }
 
       albumName.snp.makeConstraints { make in
-          make.leading.equalTo(icon).offset(10)
-          make.bottomMargin.topMargin.equalToSuperview().offset(5)
+          make.leading.equalTo(icon).offset(15)
+          make.top.bottom.equalTo(contentView)
        }
 
        lockIcon.snp.makeConstraints { make in
-           make.trailing.equalTo(contentView).offset(10)
-           make.bottomMargin.topMargin.equalToSuperview().offset(5)
-       }
+           make.trailing.equalTo(contentView).offset(-10)
+           make.top.bottom.equalTo(contentView)       }
    }
 
    // MARK: Configuration
@@ -81,5 +80,6 @@ class UtilitiesWithLockCell: UICollectionViewListCell {
    override func prepareForReuse() {
        super.prepareForReuse()
        self.icon.image = nil
+       self.albumName.text = nil
    }
 }

@@ -52,13 +52,13 @@ class PeopleCell: UICollectionViewCell {
 
    lazy var albumName: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
        return label
    }()
 
    lazy var amountOfPhotoLabel: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
        label.textColor = .gray
        return label
    }()

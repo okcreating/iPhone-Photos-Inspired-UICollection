@@ -21,14 +21,14 @@ class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
 
    lazy var albumName: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
        label.textColor = .systemBlue
        return label
    }()
 
    lazy var amountOfPhotoLabel: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
        label.textColor = .gray
        return label
    }()
@@ -56,8 +56,8 @@ class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
 
    private func setupLayout() {
        icon.snp.makeConstraints { make in
-           make.leading.equalTo(contentView).offset(10)
-           make.top.bottom.equalTo(contentView)
+           make.leading.equalTo(self).offset(10)
+           make.top.bottom.equalTo(self)
        }
 
       albumName.snp.makeConstraints { make in
@@ -84,5 +84,7 @@ class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
    override func prepareForReuse() {
        super.prepareForReuse()
        self.icon.image = nil
+       self.albumName.text = nil
+       self.amountOfPhotoLabel.text = nil
    }
 }

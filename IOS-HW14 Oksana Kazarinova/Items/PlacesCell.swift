@@ -16,15 +16,15 @@ class PlacesCell: UICollectionViewCell {
    lazy var image1: UIImageView = {
        let imageView = UIImageView()
        imageView.clipsToBounds = true
-       imageView.layer.cornerRadius = 10
-       imageView.contentMode = .scaleToFill
+       imageView.layer.cornerRadius = 5
+       imageView.contentMode = .scaleAspectFill
        return imageView
    }()
 
     lazy var image2: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = 5
         imageView.contentMode = .scaleAspectFill
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.white.cgColor
@@ -33,13 +33,13 @@ class PlacesCell: UICollectionViewCell {
 
    lazy var albumName: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
        return label
    }()
 
    lazy var amountOfPhotoLabel: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
        label.textColor = .gray
        return label
    }()
