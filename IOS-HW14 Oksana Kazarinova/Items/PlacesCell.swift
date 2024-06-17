@@ -77,14 +77,15 @@ class PlacesCell: UICollectionViewCell {
    private func setupLayout() {
       image1.snp.makeConstraints { make in
            make.top.leading.trailing.equalTo(self)
-          //make.width.equalTo(contentView.snp.height)
+            make.height.width.equalTo(170)
        }
 
        image2.snp.makeConstraints { make in
           // make.edges.equalTo(image1).offset(60)
-           make.width.equalTo(contentView.frame.width / 2.2)
-           make.height.equalTo(self.frame.width)
+//           make.width.equalTo(contentView.frame.width / 2.2)
+//           make.height.equalTo(self.frame.width)
            make.centerX.centerY.equalTo(image1.snp.center)
+           make.height.width.equalTo(85)
        }
 
        nameAndAmountStack.snp.makeConstraints { make in

@@ -21,7 +21,7 @@ class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
 
    lazy var albumName: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+       label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
        label.textColor = .systemBlue
        return label
    }()
@@ -61,7 +61,7 @@ class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
        }
 
       albumName.snp.makeConstraints { make in
-          make.leading.equalTo(icon.snp.trailing).offset(10)
+          make.leading.equalTo(contentView).offset(45)
           make.top.bottom.equalTo(contentView)
        }
 
@@ -74,7 +74,7 @@ class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
    // MARK: Configuration
 
    func configuration(model: CompositionalModel) {
-       self.icon.image = UIImage(named: model.image ?? "blank")
+       self.icon.image = UIImage(systemName: model.image ?? "blank")
        self.albumName.text = model.mainTitle
        self.amountOfPhotoLabel.text = String("\(model.numberOfItems ?? 0)")
    }

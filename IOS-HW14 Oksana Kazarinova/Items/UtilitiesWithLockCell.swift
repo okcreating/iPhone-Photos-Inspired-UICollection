@@ -21,7 +21,7 @@ class UtilitiesWithLockCell: UICollectionViewListCell {
 
    lazy var albumName: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
        label.textColor = .systemBlue
        return label
    }()
@@ -29,6 +29,7 @@ class UtilitiesWithLockCell: UICollectionViewListCell {
    lazy var lockIcon: UIImageView = {
        let icon = UIImageView(image: UIImage(systemName: "lock.fill"))
        icon.tintColor = .gray
+       icon.contentMode = .scaleAspectFit
        return icon
    }()
 
@@ -54,24 +55,25 @@ class UtilitiesWithLockCell: UICollectionViewListCell {
 
    private func setupLayout() {
        icon.snp.makeConstraints { make in
-           make.leading.equalTo(self)
+           make.leading.equalTo(self).offset(10)
            make.top.bottom.equalTo(self)
        }
 
       albumName.snp.makeConstraints { make in
-          make.leading.equalTo(icon).offset(15)
+          make.leading.equalTo(contentView).offset(45)
           make.top.bottom.equalTo(contentView)
        }
 
        lockIcon.snp.makeConstraints { make in
            make.trailing.equalTo(contentView).offset(-10)
-           make.top.bottom.equalTo(contentView)       }
+           make.top.bottom.equalTo(contentView)
+       }
    }
 
    // MARK: Configuration
 
    func configuration(model: CompositionalModel) {
-       self.icon.image = UIImage(named: model.image ?? "blank")
+       self.icon.image = UIImage(systemName: model.image ?? "blank")
        self.albumName.text = model.mainTitle
    }
 

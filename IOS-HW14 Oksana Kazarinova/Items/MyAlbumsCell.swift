@@ -16,7 +16,7 @@ class MyAlbumsCell: UICollectionViewCell {
     lazy var image: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 5
         return imageView
     }()
@@ -29,7 +29,7 @@ class MyAlbumsCell: UICollectionViewCell {
 
     lazy var amountOfPhotoLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
         label.textColor = .gray
         return label
     }()
@@ -66,21 +66,22 @@ class MyAlbumsCell: UICollectionViewCell {
     private func setupLayout() {
         image.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(contentView)
-           // make.height.equalTo(self.snp.height)
+            make.height.width.equalTo(170)
         }
 
         nameAndAmountStack.snp.makeConstraints { make in
-            make.top.equalTo(image.snp.bottom).offset(-10)
+            make.top.equalTo(image.snp.bottom)
             make.leading.bottom.equalTo(contentView)
         }
 
         albumName.snp.makeConstraints { make in
-            make.leading.top.equalTo(nameAndAmountStack).offset(10)
+            make.leading.equalTo(nameAndAmountStack)
+            make.top.equalTo(nameAndAmountStack).offset(5)
         }
 
         amountOfPhotoLabel.snp.makeConstraints { make in
-            make.leading.equalTo(nameAndAmountStack).offset(10)
-            make.top.equalTo(albumName.snp.bottom).offset(-5)
+            make.leading.equalTo(nameAndAmountStack)
+            make.top.equalTo(albumName.snp.bottom)
         }
     }
 

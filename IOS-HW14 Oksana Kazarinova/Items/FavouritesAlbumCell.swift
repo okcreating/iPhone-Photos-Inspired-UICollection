@@ -74,7 +74,7 @@ class FavouritesAlbumCell: UICollectionViewCell {
     private func setupLayout() {
         image.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(self)
-           // make.width.equalTo(contentView.snp.height)
+            make.height.width.equalTo(170)
         }
 
         nameAndAmountStack.snp.makeConstraints { make in

@@ -16,7 +16,7 @@ class PeopleCell: UICollectionViewCell {
        let imageView = UIImageView()
        imageView.clipsToBounds = true
        imageView.layer.cornerRadius = 38
-       imageView.contentMode = .scaleToFill
+       imageView.contentMode = .scaleAspectFill
        return imageView
    }()
 
@@ -24,7 +24,7 @@ class PeopleCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 38
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
@@ -32,7 +32,7 @@ class PeopleCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 38
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
@@ -40,13 +40,13 @@ class PeopleCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 38
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
     lazy var photosStack: UIStackView =  {
         let stack = UIStackView()
-        stack.alignment = .fill
+        //stack.alignment = .center
         return stack
     }()
 
@@ -98,48 +98,50 @@ class PeopleCell: UICollectionViewCell {
    private func setupLayout() {
        photosStack.snp.makeConstraints { make in
            make.top.leading.trailing.equalTo(self)
+           make.height.width.equalTo(170)
        }
 
        nameAndAmountStack.snp.makeConstraints { make in
-           make.top.equalTo(photosStack.snp.bottom).offset(-10)
+           make.top.equalTo(photosStack.snp.bottom)
            make.leading.bottom.equalTo(contentView)
        }
 
        albumName.snp.makeConstraints { make in
-           make.leading.top.equalTo(nameAndAmountStack).offset(10)
+           make.leading.equalTo(nameAndAmountStack)
+           make.top.equalTo(nameAndAmountStack).offset(5)
        }
 
        amountOfPhotoLabel.snp.makeConstraints { make in
-           make.leading.equalTo(nameAndAmountStack).offset(10)
-           make.top.equalTo(albumName.snp.bottom).offset(5)
+           make.leading.equalTo(nameAndAmountStack)
+           make.top.equalTo(albumName.snp.bottom)
        }
 
        image1.snp.makeConstraints { make in
            make.top.left.equalTo(photosStack)
            //make.bottom.equalTo(image3).offset(2)
-           make.width.equalTo(contentView.frame.width / 2.05)
-           make.height.equalTo(contentView.frame.height / 2.05)
+           make.width.equalTo(84)
+           make.height.equalTo(84)
        }
 
        image2.snp.makeConstraints { make in
            make.top.right.equalTo(photosStack)
            //make.bottom.equalTo(image4).offset(2)
-           make.width.equalTo(contentView.frame.width / 2.05)
-           make.height.equalTo(contentView.frame.height / 2.05)
+           make.width.equalTo(84)
+           make.height.equalTo(84)
        }
 
        image3.snp.makeConstraints { make in
            make.left.bottom.equalTo(photosStack)
            //make.top.equalTo(image1).offset(2)
-           make.width.equalTo(contentView.frame.width / 2.05)
-           make.height.equalTo(contentView.frame.height / 2.05)
+           make.width.equalTo(84)
+           make.height.equalTo(84)
        }
 
        image4.snp.makeConstraints { make in
            make.right.bottom.equalTo(photosStack)
            //make.top.equalTo(image1).offset(2)
-           make.width.equalTo(contentView.frame.width / 2.05)
-           make.height.equalTo(contentView.frame.height / 2.05)
+           make.width.equalTo(84)
+           make.height.equalTo(84)
        }
    }
 
