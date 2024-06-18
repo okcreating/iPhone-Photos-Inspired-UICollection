@@ -19,7 +19,7 @@ struct CompositionalModel: Hashable {
 extension CompositionalModel {
     static let modelsArray = [
 
-        [CompositionalModel(nameOfAlbum: .recents, mainTitle: "Recents", content: ContentModel.recents, image: ContentModel.recents.last ?? "blank", numberOfItems: ContentModel.recents.count),
+        [CompositionalModel(nameOfAlbum: .recents, mainTitle: "Recents", content: ContentModel.recents, image: ContentModel.recents.randomElement() ?? "blank", numberOfItems: ContentModel.recents.count),
          CompositionalModel(nameOfAlbum: .favourites, mainTitle: "Favourites", content: ContentModel.favourites, image: ContentModel.favourites.last ?? "blank", numberOfItems: ContentModel.favourites.count),
          CompositionalModel(nameOfAlbum: .uk, mainTitle: "UK", content: ContentModel.uk, image: ContentModel.uk.last ?? "blank", numberOfItems: ContentModel.uk.count),
          CompositionalModel(nameOfAlbum: .europe, mainTitle: "Europe", content: ContentModel.europe, image: ContentModel.europe.last ?? "blank", numberOfItems: ContentModel.europe.count),

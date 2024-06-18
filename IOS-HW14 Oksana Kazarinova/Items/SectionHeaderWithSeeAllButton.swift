@@ -8,12 +8,12 @@
 import UIKit
 
 class SectionHeaderWithSeeAllButton: UICollectionReusableView {
+
     
+
     static let identifier = "HeaderWithButton"
 
-   
-
-   // private var models = [[CompositionalModel]]()
+    weak var delegate: AlbumControllerOutput?
 
     // MARK: - Outlets
 
@@ -29,7 +29,6 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
         button.setTitle("See All", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-       // button.frame = CGRect(x: 303, y: 14, width: 62, height: 12)
         button.addTarget(self, action: #selector(showDetail), for: .touchUpInside)
         return button
     }()
@@ -38,10 +37,9 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
 
     override init(frame: CGRect) {
         super .init(frame: frame)
-        //clipsToBounds = true
+
         setupHierarchy()
         setupLayout()
-
     }
 
     required init?(coder: NSCoder) {
@@ -69,11 +67,8 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
 
     @objc 
     func showDetail() {
-        let controller = SeeAllAlbumsViewController()
-        controller.delegate?.pushSeeAllAlbums()
-        
+        delegate?.pushSeeAllAlbums()
     }
-
 
     // MARK: - Reuse
     override func prepareForReuse() {

@@ -15,8 +15,8 @@ class DetailCell: UICollectionViewCell {
    lazy var image: UIImageView = {
        let imageView = UIImageView()
        imageView.clipsToBounds = true
-       imageView.contentMode = .scaleToFill
-    
+       imageView.contentMode = .scaleAspectFill
+
        return imageView
    }()
 
@@ -36,7 +36,6 @@ class DetailCell: UICollectionViewCell {
 
     private func setupHierarchy() {
         contentView.addSubview(image)
-
     }
 
     private func setupLayout() {
@@ -47,9 +46,9 @@ class DetailCell: UICollectionViewCell {
 
     // MARK: Configuration
 
-    func configuration(model: CompositionalModel) {
-        self.image.image = UIImage(named: model.image ?? "blank")
-    }
+//    func configuration(model: CompositionalModel) {
+//        self.image.image = UIImage(named: model.content[IndexPath.] ?? "blank")
+//    }
 
     // MARK: Reuse
 

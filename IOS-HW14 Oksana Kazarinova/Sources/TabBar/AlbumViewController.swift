@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol AlbumControllerOutput: AnyObject {
     func pushSeeAllAlbums()
@@ -38,7 +39,6 @@ final class AlbumViewController: UIViewController, AlbumControllerOutput {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         setupNavigationBar()
         setupHierarchy()
         setupLayout()
@@ -76,7 +76,6 @@ final class AlbumViewController: UIViewController, AlbumControllerOutput {
 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.46), heightDimension: .fractionalHeight(0.68))
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
-               // layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
                 layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
 
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
@@ -115,11 +114,9 @@ final class AlbumViewController: UIViewController, AlbumControllerOutput {
 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
-                //layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
                 layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
                 sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10)
-                //sectionLayout.orthogonalScrollingBehavior = .continuous
 
                 let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.96), heightDimension: .estimated(30))
                 let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
@@ -183,10 +180,11 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 return item
             }
         default:
-            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath) as? MediaTypesAndUtilitiesCell
-            item?.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
-            item?.accessories = [.disclosureIndicator()]
-            return item ?? UICollectionViewCell()
+            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath) as!
+            MediaTypesAndUtilitiesCell
+            item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
+            item.accessories = [.disclosureIndicator()]
+            return item
         }
         }
 
@@ -195,6 +193,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
         case 0:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderWithSeeAllButton.identifier, for: indexPath) as? SectionHeaderWithSeeAllButton
             header?.title.text = "My Albums"
+            header?.delegate = self
             return header ?? UICollectionReusableView()
         case 1:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionsHeader.identifier, for: indexPath) as? SectionsHeader
@@ -224,7 +223,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
 extension AlbumViewController {
     func pushSeeAllAlbums() {
         let seeAllAlbumsViewController = SeeAllAlbumsViewController()
-        seeAllAlbumsViewController.delegate = self
         navigationController?.pushViewController(seeAllAlbumsViewController, animated: true)
+        
     }
 }

@@ -40,7 +40,7 @@ class SectionsHeader: UICollectionReusableView {
 
     private func setupLayout() {
         title.snp.makeConstraints { make in
-            make.bottom.left.equalTo(self)
+            make.bottom.leading.top.equalTo(self)
         }
     }
 
