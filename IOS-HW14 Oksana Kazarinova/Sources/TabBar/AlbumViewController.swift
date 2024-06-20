@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
-class AlbumViewController: UIViewController {
+protocol AlbumControllerOutput: AnyObject {
+    func pushSeeAllAlbums()
+}
+
+final class AlbumViewController: UIViewController, AlbumControllerOutput {
 
     // MARK: - Outlets
 
@@ -20,8 +25,10 @@ class AlbumViewController: UIViewController {
         collectionView.register(PlacesCell.self, forCellWithReuseIdentifier: PlacesCell.identifier)
         collectionView.register(MediaTypesAndUtilitiesCell.self, forCellWithReuseIdentifier: MediaTypesAndUtilitiesCell.identifier)
         collectionView.register(UtilitiesWithLockCell.self, forCellWithReuseIdentifier: UtilitiesWithLockCell.identifier)
+
         collectionView.register(SectionsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionsHeader.identifier)
         collectionView.register(SectionHeaderWithSeeAllButton.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderWithSeeAllButton.identifier)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -45,9 +52,8 @@ class AlbumViewController: UIViewController {
 
     private func setupLayout() {
         albumsCollectionView.snp.makeConstraints { make in
-            make.leading.top.bottom.trailing.equalTo(view)
-            //make.top.equalTo(navigationController?.navigationBar ?? view).offset(15)
-            //make.bottom.equalTo(tabBarController?.tabBar ?? view)
+            make.left.bottom.right.equalTo(view)
+            make.top.equalTo(view.safeAreaLayoutGuide)
         }
     }
 
@@ -65,41 +71,64 @@ class AlbumViewController: UIViewController {
             switch sectionIndex {
 
             case 0:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.46))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.43), heightDimension: .fractionalHeight(0.3))
+
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.46), heightDimension: .fractionalHeight(0.68))
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
-                layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
-                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
+                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
+
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
-                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10)
-                sectionLayout.orthogonalScrollingBehavior = .groupPagingCentered
+                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
+                sectionLayout.orthogonalScrollingBehavior = .groupPaging
+
+                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(30))
+                let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
+
                 return sectionLayout
 
             case 1:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.43) , heightDimension: .fractionalHeight(1))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.48) , heightDimension: .fractionalHeight(1))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: layoutItem, count: 2)
-                layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
+
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.96), heightDimension: .fractionalHeight(0.34))
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
+               layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(10)
+                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
+
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
-                sectionLayout.orthogonalScrollingBehavior = .groupPagingCentered
+                sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
+                sectionLayout.orthogonalScrollingBehavior = .groupPaging
+
+                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(30))
+                let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
                 return sectionLayout
 
             default:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+
                 layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
+
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
                 let layoutGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [layoutItem])
-                layoutGroup.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
+                layoutGroup.interItemSpacing = NSCollectionLayoutSpacing.fixed(5)
                 let sectionLayout = NSCollectionLayoutSection(group: layoutGroup)
                 sectionLayout.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10)
+
+                let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.96), heightDimension: .estimated(30))
+                let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                sectionLayout.boundarySupplementaryItems = [layoutSectionHeader]
+
                 return sectionLayout
             }
         }
     }
 }
+
+// MARK: Collection Setup
 
 extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -113,39 +142,52 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
+
         case 0:
-            if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .favourites {
-                let item = collectionView.dequeueReusableCell(withReuseIdentifier: FavouritesAlbumCell.identifier, for: indexPath)
+            if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .favourites {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: FavouritesAlbumCell.identifier, for: indexPath) as! FavouritesAlbumCell
+                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             } else {
-                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath)
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath) as! MyAlbumsCell
+                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             }
+
         case 1:
-            if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .people {
-                let item = collectionView.dequeueReusableCell(withReuseIdentifier: PeopleCell.identifier, for: indexPath)
+            if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .people {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: PeopleCell.identifier, for: indexPath) as! PeopleCell
+                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             }
-            else if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .places {
-                let item = collectionView.dequeueReusableCell(withReuseIdentifier: PlacesCell.identifier, for: indexPath)
+            else if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .places {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: PlacesCell.identifier, for: indexPath) as! PlacesCell
+                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             } else {
-                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath)
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath) as! MyAlbumsCell
+                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             }
-        case 2:
-            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath)
-            return item
+
         case 3:
-            if CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .hidden || CompositionalModel.modelsArray[indexPath.section][indexPath.row].nameOfAlbum == .recentlyDeleted {
-                let item = collectionView.dequeueReusableCell(withReuseIdentifier: UtilitiesWithLockCell.identifier, for: indexPath)
+            if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .hidden || CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .recentlyDeleted {
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: UtilitiesWithLockCell.identifier, for: indexPath) as! UtilitiesWithLockCell
+                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
+                item.accessories = [.disclosureIndicator()]
                 return item
             } else {
-                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath)
+                let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath) as! MediaTypesAndUtilitiesCell
+                item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
+                item.accessories = [.disclosureIndicator()]
                 return item
             }
+
         default:
-            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath)
+            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath) as!
+            MediaTypesAndUtilitiesCell
+            item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
+            item.accessories = [.disclosureIndicator()]
             return item
         }
     }
@@ -155,6 +197,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
         case 0:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderWithSeeAllButton.identifier, for: indexPath) as? SectionHeaderWithSeeAllButton
             header?.title.text = "My Albums"
+            header?.delegate = self
             return header ?? UICollectionReusableView()
         case 1:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionsHeader.identifier, for: indexPath) as? SectionsHeader
@@ -178,5 +221,12 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = DetailViewController()
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension AlbumViewController {
+    func pushSeeAllAlbums() {
+        let seeAllAlbumsViewController = SeeAllAlbumsViewController()
+        navigationController?.pushViewController(seeAllAlbumsViewController, animated: true)
     }
 }

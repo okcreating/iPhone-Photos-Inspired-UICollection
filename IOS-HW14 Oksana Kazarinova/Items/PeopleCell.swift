@@ -15,50 +15,50 @@ class PeopleCell: UICollectionViewCell {
    lazy var image1: UIImageView = {
        let imageView = UIImageView()
        imageView.clipsToBounds = true
-       imageView.layer.cornerRadius = 10
-       imageView.contentMode = .scaleToFill
+       imageView.layer.cornerRadius = 38
+       imageView.contentMode = .scaleAspectFill
        return imageView
    }()
 
     lazy var image2: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
-        imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 38
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
     lazy var image3: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
-        imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 38
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
     lazy var image4: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
-        imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 38
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
     lazy var photosStack: UIStackView =  {
         let stack = UIStackView()
-        stack.alignment = .fill
+        //stack.alignment = .center
         return stack
     }()
 
    lazy var albumName: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
        return label
    }()
 
    lazy var amountOfPhotoLabel: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
        label.textColor = .gray
        return label
    }()
@@ -97,49 +97,51 @@ class PeopleCell: UICollectionViewCell {
 
    private func setupLayout() {
        photosStack.snp.makeConstraints { make in
-           make.top.leading.trailing.equalToSuperview()
+           make.top.leading.trailing.equalTo(self)
+           make.height.width.equalTo(170)
        }
 
        nameAndAmountStack.snp.makeConstraints { make in
-           make.top.equalTo(photosStack.snp.bottom).offset(-10)
-           make.leading.bottom.equalToSuperview()
+           make.top.equalTo(photosStack.snp.bottom)
+           make.leading.bottom.equalTo(contentView)
        }
 
        albumName.snp.makeConstraints { make in
-           make.leading.top.equalTo(nameAndAmountStack).offset(10)
+           make.leading.equalTo(nameAndAmountStack)
+           make.top.equalTo(nameAndAmountStack).offset(5)
        }
 
        amountOfPhotoLabel.snp.makeConstraints { make in
-           make.leading.equalTo(nameAndAmountStack).offset(10)
-           make.top.equalTo(albumName.snp.bottom).offset(-5)
+           make.leading.equalTo(nameAndAmountStack)
+           make.top.equalTo(albumName.snp.bottom)
        }
 
        image1.snp.makeConstraints { make in
            make.top.left.equalTo(photosStack)
            //make.bottom.equalTo(image3).offset(2)
-           make.width.lessThanOrEqualTo(photosStack.frame.width / 2.05)
-           make.height.lessThanOrEqualTo(photosStack.frame.height / 2.05)
+           make.width.equalTo(84)
+           make.height.equalTo(84)
        }
 
        image2.snp.makeConstraints { make in
            make.top.right.equalTo(photosStack)
            //make.bottom.equalTo(image4).offset(2)
-           make.width.lessThanOrEqualTo(photosStack.frame.width / 2.05)
-           make.height.lessThanOrEqualTo(photosStack.frame.height / 2.05)
+           make.width.equalTo(84)
+           make.height.equalTo(84)
        }
 
        image3.snp.makeConstraints { make in
            make.left.bottom.equalTo(photosStack)
            //make.top.equalTo(image1).offset(2)
-           make.width.lessThanOrEqualTo(photosStack.frame.width / 2.05)
-           make.height.lessThanOrEqualTo(photosStack.frame.height / 2.05)
+           make.width.equalTo(84)
+           make.height.equalTo(84)
        }
 
        image4.snp.makeConstraints { make in
            make.right.bottom.equalTo(photosStack)
            //make.top.equalTo(image1).offset(2)
-           make.width.lessThanOrEqualTo(photosStack.frame.width / 2.05)
-           make.height.lessThanOrEqualTo(photosStack.frame.height / 2.05)
+           make.width.equalTo(84)
+           make.height.equalTo(84)
        }
    }
 
@@ -151,7 +153,7 @@ class PeopleCell: UICollectionViewCell {
        self.image3.image = UIImage(named: ContentModel.people.randomElement() ?? "blank")
        self.image4.image = UIImage(named: ContentModel.people.randomElement() ?? "blank")
        self.albumName.text = model.mainTitle
-       self.amountOfPhotoLabel.text = String("\(model.numberOfItems)")
+       self.amountOfPhotoLabel.text = String("\(model.numberOfItems ?? 0)")
    }
 
    // MARK: Reuse

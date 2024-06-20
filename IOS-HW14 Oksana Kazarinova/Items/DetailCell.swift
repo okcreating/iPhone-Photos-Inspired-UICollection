@@ -15,7 +15,8 @@ class DetailCell: UICollectionViewCell {
    lazy var image: UIImageView = {
        let imageView = UIImageView()
        imageView.clipsToBounds = true
-       imageView.contentMode = .scaleToFill
+       imageView.contentMode = .scaleAspectFill
+
        return imageView
    }()
 
@@ -34,15 +35,20 @@ class DetailCell: UICollectionViewCell {
     // MARK: Setups
 
     private func setupHierarchy() {
-        contentView.addSubview(image)
-
+        addSubview(image)
     }
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
-            make.edges.equalTo(contentView)
+            make.edges.equalTo(self)
         }
     }
+
+    // MARK: Configuration
+
+//    func configuration(model: CompositionalModel) {
+//        self.image.image = UIImage(named: model.content.randomElement() ?? "blank")
+//    }
 
     // MARK: Reuse
 

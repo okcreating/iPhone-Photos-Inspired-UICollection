@@ -13,7 +13,8 @@ class SeeAllAlbumsViewController: UIViewController {
 
     private lazy var seeAllAlbumsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MyAlbumsCell.self, forCellWithReuseIdentifier: MyAlbumsCell.identifier)
         collectionView.register(FavouritesAlbumCell.self, forCellWithReuseIdentifier: FavouritesAlbumCell.identifier)
@@ -26,6 +27,7 @@ class SeeAllAlbumsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Albums"
+        view.backgroundColor = .white
         setupNavigationBar()
         setupHierarchy()
         setupLayout()
@@ -34,7 +36,6 @@ class SeeAllAlbumsViewController: UIViewController {
     // MARK: - Setups
 
     private func setupNavigationBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: .none, action: .none)
     }
 
@@ -44,7 +45,9 @@ class SeeAllAlbumsViewController: UIViewController {
 
     private func setupLayout() {
         seeAllAlbumsCollectionView.snp.makeConstraints { make in
-            make.edges.equalTo(view)
+            make.left.bottom.right.equalTo(view)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+
         }
     }
 }
@@ -52,16 +55,16 @@ class SeeAllAlbumsViewController: UIViewController {
 extension SeeAllAlbumsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: (view.frame.size.width / 2) - 5,
-               height: (view.frame.size.height / 3.1) - 10)
+        CGSize(width: (170),
+               height: (225))
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        5
+        10
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        5
+        10
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -70,12 +73,14 @@ extension SeeAllAlbumsViewController: UICollectionViewDelegate, UICollectionView
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if CompositionalModel.modelsArray[0][indexPath.item].nameOfAlbum == .favourites {
-        let item = collectionView.dequeueReusableCell(withReuseIdentifier: FavouritesAlbumCell.identifier, for: indexPath)
-            return item
+        let item = collectionView.dequeueReusableCell(withReuseIdentifier: FavouritesAlbumCell.identifier, for: indexPath) as? FavouritesAlbumCell
+            item?.configuration(model: CompositionalModel.modelsArray[0][indexPath.item])
+            return item ?? UICollectionViewCell()
         }
         else {
-            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath)
-                return item
+            let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath) as? MyAlbumsCell
+            item?.configuration(model: CompositionalModel.modelsArray[0][indexPath.item])
+            return item ?? UICollectionViewCell()
         }
     }
 

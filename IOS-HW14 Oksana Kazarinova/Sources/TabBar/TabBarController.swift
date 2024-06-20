@@ -14,6 +14,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         delegate = self
         setupTabBarController()
         setupTabBarViewContrrollers()
+        selectedIndex = 2
     }
 
     func setupTabBarController() {
@@ -37,6 +38,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         albumsTab.tabBarItem = albumsIcon
         let albumsNavigationController = UINavigationController(rootViewController: albumsTab)
 
+
         let searchTab = SearchViewController()
         let searchIcon = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass"))
         searchTab.tabBarItem = searchIcon
@@ -44,8 +46,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
         let controllers = [libraryNavigationController, forYouNavigationController, albumsNavigationController, searchNavigationController]
         self.setViewControllers(controllers, animated: true)
-
     }
-
 }
 
