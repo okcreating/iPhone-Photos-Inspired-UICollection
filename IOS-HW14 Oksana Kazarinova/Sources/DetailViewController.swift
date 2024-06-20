@@ -9,6 +9,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+//    var photo: String {
+//            didSet {
+//                var index = 0
+//                image.image = photo.content[index]
+//                index += 1
+//            }
+//        }
     // MARK: - Outlets
 
     private lazy var gridCollectionView: UICollectionView = {
@@ -68,7 +75,9 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = gridCollectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell
-        item?.image.image = UIImage(named: CompositionalModel.modelsArray[indexPath.section][indexPath.section].content[indexPath.item])
+        //item?.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.section])
+       item?.image.image = UIImage(named: CompositionalModel.modelsArray[indexPath.section][indexPath.section].content[indexPath.item])
+
         return item ?? UICollectionViewCell()
     }
 
@@ -80,10 +89,8 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = FullScreenPhotoViewController()
-        //viewController.image.image = UIImage(named: collectionView.[indexPath.section][indexPath.item].)
-
+//        viewController.image.image = UIImage(named: selectedItem ?? "blank")
         navigationController?.pushViewController(viewController, animated: true)
-        //present(viewController, animated: true)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -97,6 +104,4 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         CGSize(width: view.frame.width, height: 30)
     }
-
-    
 }

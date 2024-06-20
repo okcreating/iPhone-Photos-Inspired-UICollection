@@ -35,7 +35,7 @@ class DetailCell: UICollectionViewCell {
     // MARK: Setups
 
     private func setupHierarchy() {
-        contentView.addSubview(image)
+        addSubview(image)
     }
 
     private func setupLayout() {
@@ -46,9 +46,9 @@ class DetailCell: UICollectionViewCell {
 
     // MARK: Configuration
 
-    func configuration(model: CompositionalModel) {
-        self.image.image = UIImage(named: model.image ?? "blank")
-    }
+//    func configuration(model: CompositionalModel) {
+//        self.image.image = UIImage(named: model.content.randomElement() ?? "blank")
+//    }
 
     // MARK: Reuse
 

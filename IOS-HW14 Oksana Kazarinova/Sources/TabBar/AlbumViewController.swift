@@ -14,8 +14,6 @@ protocol AlbumControllerOutput: AnyObject {
 
 final class AlbumViewController: UIViewController, AlbumControllerOutput {
 
-
-
     // MARK: - Outlets
 
     private lazy var albumsCollectionView: UICollectionView = {
@@ -144,6 +142,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
+
         case 0:
             if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .favourites {
                 let item = collectionView.dequeueReusableCell(withReuseIdentifier: FavouritesAlbumCell.identifier, for: indexPath) as! FavouritesAlbumCell
@@ -154,6 +153,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             }
+
         case 1:
             if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .people {
                 let item = collectionView.dequeueReusableCell(withReuseIdentifier: PeopleCell.identifier, for: indexPath) as! PeopleCell
@@ -169,6 +169,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 item.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
                 return item
             }
+
         case 3:
             if CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .hidden || CompositionalModel.modelsArray[indexPath.section][indexPath.item].nameOfAlbum == .recentlyDeleted {
                 let item = collectionView.dequeueReusableCell(withReuseIdentifier: UtilitiesWithLockCell.identifier, for: indexPath) as! UtilitiesWithLockCell
@@ -181,6 +182,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 item.accessories = [.disclosureIndicator()]
                 return item
             }
+
         default:
             let item = collectionView.dequeueReusableCell(withReuseIdentifier: MediaTypesAndUtilitiesCell.identifier, for: indexPath) as!
             MediaTypesAndUtilitiesCell
@@ -188,7 +190,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
             item.accessories = [.disclosureIndicator()]
             return item
         }
-        }
+    }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch indexPath.section {
@@ -218,7 +220,6 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = DetailViewController()
-        
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -227,6 +228,5 @@ extension AlbumViewController {
     func pushSeeAllAlbums() {
         let seeAllAlbumsViewController = SeeAllAlbumsViewController()
         navigationController?.pushViewController(seeAllAlbumsViewController, animated: true)
-        
     }
 }

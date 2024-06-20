@@ -71,6 +71,7 @@ class SectionHeaderWithSeeAllButton: UICollectionReusableView {
     }
 
     // MARK: - Reuse
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         title.text = nil

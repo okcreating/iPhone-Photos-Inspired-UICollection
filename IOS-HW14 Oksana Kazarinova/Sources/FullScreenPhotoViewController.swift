@@ -8,13 +8,10 @@
 import UIKit
 
 class FullScreenPhotoViewController: UIViewController {
-//
+
 //    var photo: CompositionalModel {
 //        didSet {
-//            image.image = UIImage(named: photo.content.)
-//
-//          
-//
+//            image.image = photo.content[
 //        }
 //    }
 
@@ -32,6 +29,7 @@ class FullScreenPhotoViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         setupHierarchy()
+
     }
 
     // MARK: - Setups
@@ -42,9 +40,9 @@ class FullScreenPhotoViewController: UIViewController {
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
-            //make.centerX.centerY.equalTo(view)
-            make.top.equalTo(view).offset(20)
+            make.top.equalTo(view).offset(30)
             make.center.equalTo(view.center)
+            make.bottom.equalTo(view).offset(-15)
         }
     }
 }

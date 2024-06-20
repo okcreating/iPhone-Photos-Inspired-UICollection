@@ -39,7 +39,6 @@ class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
        super.init(frame: frame)
        setupHierarchy()
        setupLayout()
-       
    }
 
    required init?(coder: NSCoder) {
