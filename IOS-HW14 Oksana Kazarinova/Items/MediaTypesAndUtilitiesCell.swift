@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MediaTypesAndUtilitiesCell: UICollectionViewCell {
+class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
     static let identifier = "MediaTypesAndUtilitiesCell"
 
    // MARK: Outlets
@@ -21,14 +21,14 @@ class MediaTypesAndUtilitiesCell: UICollectionViewCell {
 
    lazy var albumName: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
        label.textColor = .systemBlue
        return label
    }()
 
    lazy var amountOfPhotoLabel: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
        label.textColor = .gray
        return label
    }()
@@ -55,27 +55,27 @@ class MediaTypesAndUtilitiesCell: UICollectionViewCell {
 
    private func setupLayout() {
        icon.snp.makeConstraints { make in
-           make.leading.equalToSuperview().offset(10)
-           make.bottomMargin.topMargin.equalToSuperview().offset(5)
+           make.leading.equalTo(self).offset(10)
+           make.top.bottom.equalTo(self)
        }
 
       albumName.snp.makeConstraints { make in
-          make.leading.equalTo(icon).offset(10)
-          make.bottomMargin.topMargin.equalToSuperview().offset(5)
+          make.leading.equalTo(contentView).offset(45)
+          make.top.bottom.equalTo(contentView)
        }
 
        amountOfPhotoLabel.snp.makeConstraints { make in
-           make.trailing.equalTo(contentView).offset(10)
-           make.bottomMargin.topMargin.equalToSuperview().offset(5)
+           make.trailing.equalTo(contentView).offset(-10)
+           make.top.bottom.equalTo(contentView)
        }
    }
 
    // MARK: Configuration
 
    func configuration(model: CompositionalModel) {
-       self.icon.image = UIImage(named: model.image ?? "blank")
+       self.icon.image = UIImage(systemName: model.image ?? "blank")
        self.albumName.text = model.mainTitle
-       self.amountOfPhotoLabel.text = String("\(model.numberOfItems)")
+       self.amountOfPhotoLabel.text = String("\(model.numberOfItems ?? 0)")
    }
 
    // MARK: Reuse
@@ -83,5 +83,7 @@ class MediaTypesAndUtilitiesCell: UICollectionViewCell {
    override func prepareForReuse() {
        super.prepareForReuse()
        self.icon.image = nil
+       self.albumName.text = nil
+       self.amountOfPhotoLabel.text = nil
    }
 }

@@ -15,7 +15,7 @@ class SectionsHeader: UICollectionReusableView {
 
     lazy var title: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
 
@@ -40,7 +40,7 @@ class SectionsHeader: UICollectionReusableView {
 
     private func setupLayout() {
         title.snp.makeConstraints { make in
-            make.bottom.left.equalTo(self)
+            make.bottom.leading.top.equalTo(self)
         }
     }
 

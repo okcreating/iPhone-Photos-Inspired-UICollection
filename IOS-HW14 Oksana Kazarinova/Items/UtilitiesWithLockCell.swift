@@ -7,8 +7,8 @@
 
 import UIKit
 
-class UtilitiesWithLockCell: UICollectionViewCell {
-    static let identifier = "MediaTypesAndUtilitiesCell"
+class UtilitiesWithLockCell: UICollectionViewListCell {
+    static let identifier = "UtilitiesWithLockCell"
 
    // MARK: Outlets
 
@@ -21,7 +21,7 @@ class UtilitiesWithLockCell: UICollectionViewCell {
 
    lazy var albumName: UILabel = {
        let label = UILabel()
-       label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+       label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
        label.textColor = .systemBlue
        return label
    }()
@@ -29,6 +29,7 @@ class UtilitiesWithLockCell: UICollectionViewCell {
    lazy var lockIcon: UIImageView = {
        let icon = UIImageView(image: UIImage(systemName: "lock.fill"))
        icon.tintColor = .gray
+       icon.contentMode = .scaleAspectFit
        return icon
    }()
 
@@ -54,25 +55,25 @@ class UtilitiesWithLockCell: UICollectionViewCell {
 
    private func setupLayout() {
        icon.snp.makeConstraints { make in
-           make.leading.equalToSuperview().offset(10)
-           make.bottomMargin.topMargin.equalToSuperview().offset(5)
+           make.leading.equalTo(self).offset(10)
+           make.top.bottom.equalTo(self)
        }
 
       albumName.snp.makeConstraints { make in
-          make.leading.equalTo(icon).offset(10)
-          make.bottomMargin.topMargin.equalToSuperview().offset(5)
+          make.leading.equalTo(contentView).offset(45)
+          make.top.bottom.equalTo(contentView)
        }
 
        lockIcon.snp.makeConstraints { make in
-           make.trailing.equalTo(contentView).offset(10)
-           make.bottomMargin.topMargin.equalToSuperview().offset(5)
+           make.trailing.equalTo(contentView).offset(-10)
+           make.top.bottom.equalTo(contentView)
        }
    }
 
    // MARK: Configuration
 
    func configuration(model: CompositionalModel) {
-       self.icon.image = UIImage(named: model.image ?? "blank")
+       self.icon.image = UIImage(systemName: model.image ?? "blank")
        self.albumName.text = model.mainTitle
    }
 
@@ -81,5 +82,6 @@ class UtilitiesWithLockCell: UICollectionViewCell {
    override func prepareForReuse() {
        super.prepareForReuse()
        self.icon.image = nil
+       self.albumName.text = nil
    }
 }

@@ -9,19 +9,30 @@ import UIKit
 
 class FullScreenPhotoViewController: UIViewController {
 
+//    var photo: CompositionalModel {
+//        didSet {
+//            image.image = photo.content[
+//        }
+//    }
+
+    // MARK: - Outlets
+
     lazy var image: UIImageView = {
         let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
-       // imageView.image =
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
         setupHierarchy()
+
     }
+
+    // MARK: - Setups
 
     func setupHierarchy() {
         view.addSubview(image)
@@ -29,7 +40,9 @@ class FullScreenPhotoViewController: UIViewController {
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(view).offset(30)
+            make.center.equalTo(view.center)
+            make.bottom.equalTo(view).offset(-15)
         }
     }
 }
