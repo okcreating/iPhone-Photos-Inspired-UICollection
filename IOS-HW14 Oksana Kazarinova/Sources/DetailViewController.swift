@@ -68,7 +68,6 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = gridCollectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell
-//        item?.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.item])
         item?.image.image = UIImage(named: CompositionalModel.modelsArray[indexPath.section][indexPath.section].content[indexPath.item])
         return item ?? UICollectionViewCell()
     }
@@ -81,6 +80,8 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = FullScreenPhotoViewController()
+        //viewController.image.image = UIImage(named: collectionView.[indexPath.section][indexPath.item].)
+
         navigationController?.pushViewController(viewController, animated: true)
         //present(viewController, animated: true)
     }
@@ -96,4 +97,6 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         CGSize(width: view.frame.width, height: 30)
     }
+
+    
 }

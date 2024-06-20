@@ -8,14 +8,21 @@
 import UIKit
 
 class FullScreenPhotoViewController: UIViewController {
+//
+//    var photo: CompositionalModel {
+//        didSet {
+//            image.image = UIImage(named: photo.content.)
+//
+//          
+//
+//        }
+//    }
 
     // MARK: - Outlets
 
     lazy var image: UIImageView = {
         let imageView = UIImageView()
-        //imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
-        //imageView.image = 
         return imageView
     }()
 
@@ -35,6 +42,8 @@ class FullScreenPhotoViewController: UIViewController {
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
+            //make.centerX.centerY.equalTo(view)
+            make.top.equalTo(view).offset(20)
             make.center.equalTo(view.center)
         }
     }

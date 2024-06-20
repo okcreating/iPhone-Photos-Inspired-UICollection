@@ -14,6 +14,8 @@ protocol AlbumControllerOutput: AnyObject {
 
 final class AlbumViewController: UIViewController, AlbumControllerOutput {
 
+
+
     // MARK: - Outlets
 
     private lazy var albumsCollectionView: UICollectionView = {
@@ -216,6 +218,7 @@ extension AlbumViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = DetailViewController()
+        
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -46,9 +46,9 @@ class DetailCell: UICollectionViewCell {
 
     // MARK: Configuration
 
-//    func configuration(model: CompositionalModel) {
-//        self.image.image = UIImage(named: model.content[IndexPath.] ?? "blank")
-//    }
+    func configuration(model: CompositionalModel) {
+        self.image.image = UIImage(named: model.image ?? "blank")
+    }
 
     // MARK: Reuse
 
