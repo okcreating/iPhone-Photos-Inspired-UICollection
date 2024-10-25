@@ -18,7 +18,7 @@ class FullScreenPhotoViewController: UIViewController {
 
     // MARK: - Outlets
 
-    lazy var image: UIImageView = {
+   private lazy var image: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -28,9 +28,9 @@ class FullScreenPhotoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
+        view.backgroundColor = .white
         setupHierarchy()
-
+        setupLayout()
     }
 
     // MARK: - Setups
@@ -41,11 +41,7 @@ class FullScreenPhotoViewController: UIViewController {
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
-      //     make.top.equalTo(view).offset(50)
-
-        make.center.equalTo(view.center)
-//            make.bottom.equalTo(view).offset(-15)
-    //        make.size.equalToSuperview()
+        make.size.equalToSuperview()
         }
     }
 }
