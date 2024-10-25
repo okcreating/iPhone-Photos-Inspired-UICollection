@@ -9,6 +9,8 @@ import UIKit
 
 class SeeAllAlbumsViewController: UIViewController {
 
+    let albums: [CompositionalModel] = CompositionalModel.modelsArray[0]
+
     // MARK: Outlets
 
     private lazy var seeAllAlbumsCollectionView: UICollectionView = {
@@ -47,7 +49,6 @@ class SeeAllAlbumsViewController: UIViewController {
         seeAllAlbumsCollectionView.snp.makeConstraints { make in
             make.left.bottom.right.equalTo(view)
             make.top.equalTo(view.safeAreaLayoutGuide)
-
         }
     }
 }
@@ -68,24 +69,27 @@ extension SeeAllAlbumsViewController: UICollectionViewDelegate, UICollectionView
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CompositionalModel.modelsArray[0].count
+        return albums.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if CompositionalModel.modelsArray[0][indexPath.item].nameOfAlbum == .favourites {
+        if albums[indexPath.item].nameOfAlbum == .favourites {
         let item = collectionView.dequeueReusableCell(withReuseIdentifier: FavouritesAlbumCell.identifier, for: indexPath) as? FavouritesAlbumCell
-            item?.configuration(model: CompositionalModel.modelsArray[0][indexPath.item])
+            item?.configuration(model: albums[indexPath.item])
             return item ?? UICollectionViewCell()
         }
         else {
             let item = collectionView.dequeueReusableCell(withReuseIdentifier: MyAlbumsCell.identifier, for: indexPath) as? MyAlbumsCell
-            item?.configuration(model: CompositionalModel.modelsArray[0][indexPath.item])
+            item?.configuration(model: albums[indexPath.item])
             return item ?? UICollectionViewCell()
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentAlbum = albums[indexPath.row].content
         let viewController = DetailViewController()
+        viewController.album = currentAlbum
+        viewController.headerText = albums[indexPath.row].mainTitle
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

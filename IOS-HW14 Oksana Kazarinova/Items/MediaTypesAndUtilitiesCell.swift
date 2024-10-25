@@ -73,6 +73,12 @@ class MediaTypesAndUtilitiesCell: UICollectionViewListCell {
    // MARK: Configuration
 
    func configuration(model: CompositionalModel) {
+//       var content = defaultContentConfiguration()
+//       content.image = UIImage(systemName: model.image ?? "blank")
+//       content.text = model.mainTitle
+//       contentConfiguration = content
+//       accessories = [.disclosureIndicator()]
+
        self.icon.image = UIImage(systemName: model.image ?? "blank")
        self.albumName.text = model.mainTitle
        self.amountOfPhotoLabel.text = String("\(model.numberOfItems ?? 0)")

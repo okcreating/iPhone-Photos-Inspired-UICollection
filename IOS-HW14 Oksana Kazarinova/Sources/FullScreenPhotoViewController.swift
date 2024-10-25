@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import SnapKit
 
 class FullScreenPhotoViewController: UIViewController {
 
-//    var photo: CompositionalModel {
-//        didSet {
-//            image.image = photo.content[
-//        }
-//    }
+    var photo = String() {
+        didSet {
+            image.image = UIImage(named: photo)
+        }
+    }
 
     // MARK: - Outlets
 
@@ -40,9 +41,11 @@ class FullScreenPhotoViewController: UIViewController {
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(30)
-            make.center.equalTo(view.center)
-            make.bottom.equalTo(view).offset(-15)
+      //     make.top.equalTo(view).offset(50)
+
+        make.center.equalTo(view.center)
+//            make.bottom.equalTo(view).offset(-15)
+    //        make.size.equalToSuperview()
         }
     }
 }

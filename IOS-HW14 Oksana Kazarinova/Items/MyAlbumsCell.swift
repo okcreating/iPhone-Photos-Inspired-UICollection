@@ -65,7 +65,7 @@ class MyAlbumsCell: UICollectionViewCell {
 
     private func setupLayout() {
         image.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(contentView)
+            make.top.leading.equalToSuperview()
             make.height.width.equalTo(170)
         }
 

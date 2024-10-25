@@ -9,6 +9,9 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    var album = [String()]
+    var headerText  = String()
+
 //    var photo: String {
 //            didSet {
 //                var index = 0
@@ -65,40 +68,40 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
         1
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 54, height: 54)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width = view.frame.width / 3.2
+//       return CGSize(width: width, height: width)
+//    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CompositionalModel.modelsArray[section][section].content.count
+        album.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = gridCollectionView.dequeueReusableCell(withReuseIdentifier: DetailCell.identifier, for: indexPath) as? DetailCell
-        //item?.configuration(model: CompositionalModel.modelsArray[indexPath.section][indexPath.section])
-       item?.image.image = UIImage(named: CompositionalModel.modelsArray[indexPath.section][indexPath.section].content[indexPath.item])
+        item?.image.image = UIImage(named: album[indexPath.item])
 
         return item ?? UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header  = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionsHeader.identifier, for: indexPath) as? SectionsHeader
-        header?.title.text = "    " + CompositionalModel.modelsArray[indexPath.section][indexPath.item].mainTitle
-        return header ?? UICollectionReusableView()
+        let header  = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionsHeader.identifier, for: indexPath) as! SectionsHeader
+        header.title.text = "  " + headerText
+        return header
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let viewController = FullScreenPhotoViewController()
-//        viewController.image.image = UIImage(named: selectedItem ?? "blank")
+        viewController.photo = album[indexPath.row]
         navigationController?.pushViewController(viewController, animated: true)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        2
+        3
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        2
+        3
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

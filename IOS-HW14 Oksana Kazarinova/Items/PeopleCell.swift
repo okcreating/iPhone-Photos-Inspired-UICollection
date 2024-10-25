@@ -97,7 +97,7 @@ class PeopleCell: UICollectionViewCell {
 
    private func setupLayout() {
        photosStack.snp.makeConstraints { make in
-           make.top.leading.trailing.equalTo(self)
+           make.top.leading.equalToSuperview()
            make.height.width.equalTo(170)
        }
 
