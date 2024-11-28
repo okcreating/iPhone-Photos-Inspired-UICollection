@@ -7,23 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C62DCA752C15B30F00C5256A /* SeeAllAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DCA742C15B30F00C5256A /* SeeAllAlbumsViewController.swift */; };
+		C6340D4B2C125C4700457FAA /* SectionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6340D4A2C125C4700457FAA /* SectionsHeader.swift */; };
+		C63950EC2C14EBA7004DE870 /* FavouritesAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63950EB2C14EBA7004DE870 /* FavouritesAlbumCell.swift */; };
+		C63DCE252C17872F0040F3C8 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63DCE242C17872F0040F3C8 /* PlacesCell.swift */; };
+		C63DCE272C17B9450040F3C8 /* MediaTypesAndUtilitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63DCE262C17B9450040F3C8 /* MediaTypesAndUtilitiesCell.swift */; };
+		C63DCE292C17BC1C0040F3C8 /* UtilitiesWithLockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63DCE282C17BC1C0040F3C8 /* UtilitiesWithLockCell.swift */; };
+		C63FFD802C13069A003446CD /* SectionHeaderWithSeeAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */; };
+		C63FFD822C133F00003446CD /* MyAlbumsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FFD812C133F00003446CD /* MyAlbumsCell.swift */; };
+		C6410C032C13B7BF000992D9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6410C022C13B7BF000992D9 /* Model.swift */; };
+		C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C643586E2C11C30200DC8ACB /* TabBarController.swift */; };
+		C64358712C11C6E200DC8ACB /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358702C11C6E200DC8ACB /* LibraryViewController.swift */; };
+		C64358732C11C70D00DC8ACB /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358722C11C70D00DC8ACB /* ForYouViewController.swift */; };
+		C64358752C11C74500DC8ACB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358742C11C74500DC8ACB /* SearchViewController.swift */; };
+		C64358772C11C9E000DC8ACB /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64358762C11C9E000DC8ACB /* AlbumViewController.swift */; };
+		C64466072C190D1400995BB5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64466062C190D1400995BB5 /* DetailViewController.swift */; };
+		C6483D542C1A2CF000400FF8 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6483D532C1A2CF000400FF8 /* DetailCell.swift */; };
+		C6483D562C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6483D552C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift */; };
 		C665411D2C106EA200E04184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C665411C2C106EA200E04184 /* AppDelegate.swift */; };
 		C665411F2C106EA200E04184 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C665411E2C106EA200E04184 /* SceneDelegate.swift */; };
-		C66541212C106EA200E04184 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66541202C106EA200E04184 /* ViewController.swift */; };
-		C66541242C106EA200E04184 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C66541232C106EA200E04184 /* Base */; };
 		C66541262C106EA300E04184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C66541252C106EA300E04184 /* Assets.xcassets */; };
 		C66541292C106EA300E04184 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C66541282C106EA300E04184 /* Base */; };
+		C66541332C109F2100E04184 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C66541322C109F2100E04184 /* SnapKit */; };
+		C668D7332C173FF7003E239B /* PeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C668D7322C173FF7003E239B /* PeopleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C62DCA742C15B30F00C5256A /* SeeAllAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllAlbumsViewController.swift; sourceTree = "<group>"; };
+		C6340D4A2C125C4700457FAA /* SectionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsHeader.swift; sourceTree = "<group>"; };
+		C63950EB2C14EBA7004DE870 /* FavouritesAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesAlbumCell.swift; sourceTree = "<group>"; };
+		C63DCE242C17872F0040F3C8 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
+		C63DCE262C17B9450040F3C8 /* MediaTypesAndUtilitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypesAndUtilitiesCell.swift; sourceTree = "<group>"; };
+		C63DCE282C17BC1C0040F3C8 /* UtilitiesWithLockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesWithLockCell.swift; sourceTree = "<group>"; };
+		C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderWithSeeAllButton.swift; sourceTree = "<group>"; };
+		C63FFD812C133F00003446CD /* MyAlbumsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCell.swift; sourceTree = "<group>"; };
+		C6410C022C13B7BF000992D9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C643586E2C11C30200DC8ACB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C64358702C11C6E200DC8ACB /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		C64358722C11C70D00DC8ACB /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
+		C64358742C11C74500DC8ACB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C64358762C11C9E000DC8ACB /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		C64466062C190D1400995BB5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C6483D532C1A2CF000400FF8 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		C6483D552C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoViewController.swift; sourceTree = "<group>"; };
 		C66541192C106EA200E04184 /* IOS-HW14 Oksana Kazarinova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS-HW14 Oksana Kazarinova.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C665411C2C106EA200E04184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C665411E2C106EA200E04184 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C66541202C106EA200E04184 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C66541232C106EA200E04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C66541252C106EA300E04184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C66541282C106EA300E04184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C665412A2C106EA300E04184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C668D7322C173FF7003E239B /* PeopleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +64,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C66541332C109F2100E04184 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6340D492C12598B00457FAA /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				C63FFD812C133F00003446CD /* MyAlbumsCell.swift */,
+				C63950EB2C14EBA7004DE870 /* FavouritesAlbumCell.swift */,
+				C668D7322C173FF7003E239B /* PeopleCell.swift */,
+				C63DCE242C17872F0040F3C8 /* PlacesCell.swift */,
+				C63DCE262C17B9450040F3C8 /* MediaTypesAndUtilitiesCell.swift */,
+				C63DCE282C17BC1C0040F3C8 /* UtilitiesWithLockCell.swift */,
+				C6483D532C1A2CF000400FF8 /* DetailCell.swift */,
+				C6340D4A2C125C4700457FAA /* SectionsHeader.swift */,
+				C63FFD7F2C13069A003446CD /* SectionHeaderWithSeeAllButton.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 		C66541102C106EA200E04184 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +106,55 @@
 		C665411B2C106EA200E04184 /* IOS-HW14 Oksana Kazarinova */ = {
 			isa = PBXGroup;
 			children = (
-				C665411C2C106EA200E04184 /* AppDelegate.swift */,
-				C665411E2C106EA200E04184 /* SceneDelegate.swift */,
-				C66541202C106EA200E04184 /* ViewController.swift */,
-				C66541222C106EA200E04184 /* Main.storyboard */,
-				C66541252C106EA300E04184 /* Assets.xcassets */,
-				C66541272C106EA300E04184 /* LaunchScreen.storyboard */,
-				C665412A2C106EA300E04184 /* Info.plist */,
+				C66541342C109F4A00E04184 /* Sources */,
+				C6340D492C12598B00457FAA /* Items */,
+				C66541302C109AFD00E04184 /* App */,
+				C66541352C109F5D00E04184 /* Resources */,
 			);
 			path = "IOS-HW14 Oksana Kazarinova";
+			sourceTree = "<group>";
+		};
+		C66541302C109AFD00E04184 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C665411C2C106EA200E04184 /* AppDelegate.swift */,
+				C665411E2C106EA200E04184 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C66541342C109F4A00E04184 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C62DCA742C15B30F00C5256A /* SeeAllAlbumsViewController.swift */,
+				C64466062C190D1400995BB5 /* DetailViewController.swift */,
+				C6483D552C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift */,
+				C66541362C10A3EB00E04184 /* TabBar */,
+				C6410C022C13B7BF000992D9 /* Model.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C66541352C109F5D00E04184 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C66541252C106EA300E04184 /* Assets.xcassets */,
+				C665412A2C106EA300E04184 /* Info.plist */,
+				C66541272C106EA300E04184 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C66541362C10A3EB00E04184 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C643586E2C11C30200DC8ACB /* TabBarController.swift */,
+				C64358702C11C6E200DC8ACB /* LibraryViewController.swift */,
+				C64358722C11C70D00DC8ACB /* ForYouViewController.swift */,
+				C64358762C11C9E000DC8ACB /* AlbumViewController.swift */,
+				C64358742C11C74500DC8ACB /* SearchViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +173,9 @@
 			dependencies = (
 			);
 			name = "IOS-HW14 Oksana Kazarinova";
+			packageProductDependencies = (
+				C66541322C109F2100E04184 /* SnapKit */,
+			);
 			productName = "IOS-HW14 Oksana Kazarinova";
 			productReference = C66541192C106EA200E04184 /* IOS-HW14 Oksana Kazarinova.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +204,9 @@
 				Base,
 			);
 			mainGroup = C66541102C106EA200E04184;
+			packageReferences = (
+				C66541312C109F2100E04184 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = C665411A2C106EA200E04184 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +223,6 @@
 			files = (
 				C66541262C106EA300E04184 /* Assets.xcassets in Resources */,
 				C66541292C106EA300E04184 /* Base in Resources */,
-				C66541242C106EA200E04184 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +233,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C66541212C106EA200E04184 /* ViewController.swift in Sources */,
+				C6340D4B2C125C4700457FAA /* SectionsHeader.swift in Sources */,
+				C64358752C11C74500DC8ACB /* SearchViewController.swift in Sources */,
+				C668D7332C173FF7003E239B /* PeopleCell.swift in Sources */,
+				C63FFD802C13069A003446CD /* SectionHeaderWithSeeAllButton.swift in Sources */,
+				C64358712C11C6E200DC8ACB /* LibraryViewController.swift in Sources */,
+				C64358732C11C70D00DC8ACB /* ForYouViewController.swift in Sources */,
+				C64358772C11C9E000DC8ACB /* AlbumViewController.swift in Sources */,
+				C643586F2C11C30200DC8ACB /* TabBarController.swift in Sources */,
 				C665411D2C106EA200E04184 /* AppDelegate.swift in Sources */,
+				C64466072C190D1400995BB5 /* DetailViewController.swift in Sources */,
+				C6410C032C13B7BF000992D9 /* Model.swift in Sources */,
+				C63950EC2C14EBA7004DE870 /* FavouritesAlbumCell.swift in Sources */,
+				C62DCA752C15B30F00C5256A /* SeeAllAlbumsViewController.swift in Sources */,
+				C63DCE292C17BC1C0040F3C8 /* UtilitiesWithLockCell.swift in Sources */,
+				C6483D562C1A3A8C00400FF8 /* FullScreenPhotoViewController.swift in Sources */,
+				C63DCE252C17872F0040F3C8 /* PlacesCell.swift in Sources */,
 				C665411F2C106EA200E04184 /* SceneDelegate.swift in Sources */,
+				C63DCE272C17B9450040F3C8 /* MediaTypesAndUtilitiesCell.swift in Sources */,
+				C6483D542C1A2CF000400FF8 /* DetailCell.swift in Sources */,
+				C63FFD822C133F00003446CD /* MyAlbumsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C66541222C106EA200E04184 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C66541232C106EA200E04184 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C66541272C106EA300E04184 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,10 +397,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "IOS-HW14 Oksana Kazarinova/Info.plist";
+				INFOPLIST_FILE = "IOS-HW14 Oksana Kazarinova/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,10 +423,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "IOS-HW14 Oksana Kazarinova/Info.plist";
+				INFOPLIST_FILE = "IOS-HW14 Oksana Kazarinova/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,6 +463,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C66541312C109F2100E04184 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C66541322C109F2100E04184 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C66541312C109F2100E04184 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C66541112C106EA200E04184 /* Project object */;
 }
